@@ -14,7 +14,7 @@ const Pages = () => {
     const addPage = (e) => {
         e.preventDefault();
         try {
-            fetch("http://localhost:8082/pages/", {
+            fetch("http://localhost:5000/pages/", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ const Pages = () => {
                 return;
             }
 
-            fetch(`http://localhost:8082/pages/${id}`, {
+            fetch(`http://localhost:5000/pages/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'

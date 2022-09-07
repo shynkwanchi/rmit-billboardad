@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export const LoadBillboards = () => {
     const [billboards, setBillboards] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8082/billboards')
+        fetch('http://localhost:5000/billboards')
             .then(res => res.json())
             .then(data => setBillboards(data))
     }, []);
@@ -14,7 +14,7 @@ export const LoadBillboards = () => {
 export const LoadUsers = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8082/users')
+        fetch('http://localhost:5000/users')
             .then(res => res.json())
             .then(data => setUsers(data))
     }, []);
@@ -25,7 +25,7 @@ export const LoadUsers = () => {
 export const LoadPages = () => {
     const [pages, setPages] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8082/pages')
+        fetch('http://localhost:5000/pages')
             .then(res => res.json())
             .then(data => setPages(data))
     }, []);
@@ -36,7 +36,7 @@ export const LoadPages = () => {
 export const LoadSections = (id) => {
     const [sections, setSections] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:8082/pages/sections/${id}`)
+        fetch(`http://localhost:5000/pages/sections/${id}`)
             .then(res => res.json())
             .then(data => setSections(data))
     }, [id]);

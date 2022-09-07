@@ -14,6 +14,9 @@ import SideMenu from "./components/SideMenu/sideMenu";
 import Dashboard from "./routes/admin-routes/dashboard";
 import PageDetails from "./routes/admin-routes/page-details";
 import Section from "./routes/admin-routes/section";
+import LoginForm from "./components/LoginSignup/LoginForm";
+import SignupForm from "./components/LoginSignup/SignupForm";
+import BasicProfile from "./routes/user-routes/Profile/BasicProfile";
 
 function App() {
   return (
@@ -23,6 +26,11 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/details/:_id" element={<Details />}></Route>
           <Route path="/article/:path" element={<GenericPage />}></Route>
+
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/profile" element={<BasicProfile />} />
+
           <Route element={<Tab />}>
             <Route path="/my-billboards" element={<MyBillboards />}></Route>
             <Route path="/my-orders" element={<MyOrders />}></Route>
@@ -37,7 +45,10 @@ function App() {
           <Route path="/admin/users"></Route>
           <Route path="/admin/orders"></Route>
           <Route path="/admin/pages" element={<Pages />}></Route>
-          <Route path="/admin/page-details/:_id" element={<PageDetails />}></Route>
+          <Route
+            path="/admin/page-details/:_id"
+            element={<PageDetails />}
+          ></Route>
           <Route path="/admin/section/:_id" element={<Section />}></Route>
         </Route>
       </Routes>

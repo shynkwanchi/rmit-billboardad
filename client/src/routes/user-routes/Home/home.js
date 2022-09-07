@@ -7,7 +7,7 @@ import HomeData from "../../../data/HomeData";
 const Home = () => {
     const [billboards, setBillboard] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:8082/billboards`)
+        fetch(`http://localhost:5000/billboards`)
         .then(res => res.json())
         .then(data => setBillboard(data))
     }, [billboards])

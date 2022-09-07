@@ -1,34 +1,26 @@
-const express = require('express');
-const router = express.Router();
+const router = require("express").Router();
+const { User } = require("../models/User");
+const bcrypt = require("bcrypt");
 
-const User = require('../models/User');
+router.post("/", async (req, res) => {
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) return res.status(401).send({ message: "Invalid email or password!" });
 
-//router.get('/', (req,res) => res.send('USER ROUTE'))
+    const validPassword = await bcrypt.compare(
+      req.body.password,
+      user.password
+    );
+    if (!validPassword)
+      return res.status(401).send({ message: "Invalid email or password!" });
 
-//@route POST auth/register
-//@desc Register user
-//@access Public
-router.post('/register', async(req,res) => {
-    const {username, password} = req.body;
+    const token = user.generateAuthToken();
+    res.status(200).send({data: token, message: "Logged in successfully!"})
 
-    //Simple validation
-    if(!username || !password)
-        return res
-            .status(400)
-            .json({success:false, message: "Missing username and/or password"})
-    try {
-        const user = await User.findOne({username})
-        if(user)
-        return res
-            .status(400)
-            .json({success:false, message: 'User name already taken'})
-        
-        //If OKAY
-        const newUser = new User({username, password});
-        await newUser.save();
-
-        //Return Token
-    } catch (error){}
-})
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({ messange: "Internal Server Error!" });
+  }
+});
 
 module.exports = router;

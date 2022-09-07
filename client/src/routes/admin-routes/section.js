@@ -12,7 +12,7 @@ const Section = () => {
     const {_id} = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:8082/pages/section/${_id}`)
+        fetch(`http://localhost:5000/pages/section/${_id}`)
             .then(res => res.json())
             .then(data => setSection(data))
     },[_id]);
@@ -26,7 +26,7 @@ const Section = () => {
     const updateSection = (e, id) => {
         e.preventDefault();
         try {
-            fetch(`http://localhost:8082/pages/section/${id}`, {
+            fetch(`http://localhost:5000/pages/section/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'

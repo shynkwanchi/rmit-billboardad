@@ -17,7 +17,7 @@ const PageDetails = () => {
     const { _id } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:8082/pages/${_id}`)
+        fetch(`http://localhost:5000/pages/${_id}`)
             .then(res => res.json())
             .then(data => setPage(data))
     }, [_id]);
@@ -31,7 +31,7 @@ const PageDetails = () => {
     const updatePage = (e, id) => {
         e.preventDefault();
         try {
-            fetch(`http://localhost:8082/pages/${id}`, {
+            fetch(`http://localhost:5000/pages/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,7 +54,7 @@ const PageDetails = () => {
     const addSection = (e, id) => {
         e.preventDefault();
         try {
-            fetch(`http://localhost:8082/pages/${id}`, {
+            fetch(`http://localhost:5000/pages/${id}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ const PageDetails = () => {
                 return;
             }
 
-            fetch(`http://localhost:8082/pages/section/${id}`, {
+            fetch(`http://localhost:5000/pages/section/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
