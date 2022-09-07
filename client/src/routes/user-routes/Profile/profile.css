@@ -1,0 +1,13 @@
+.tab-header {
+    margin: 1rem 0 0.5rem;
+}
+
+/* FOR MY BILLBOARDS TAB */
+.btn-container {
+    padding: 20px 12px 0;
+}
+
+.create-new-btn {
+    width: 100%;
+    font-size: 20px;
+}
