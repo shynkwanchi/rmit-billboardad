@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getResponse } from "../../middleware/response";
-import { LoadPages, LoadSections } from "../../middleware/load-data";
+import { LoadPages } from "../../middleware/load-data";
 import "./admin-panel.css";
 
 const Pages = () => {

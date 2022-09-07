@@ -6,7 +6,7 @@ import "./card.css";
 const Card = props => {
     return (
         <div className="col-12 col-sm-6 col-md-4 item-container">
-            <Link exact to={`/details/${props.id}`}>
+            <Link to={`/details/${props.id}`}>
                 <div className="image-container">
                     <img src={thumbnail} alt="item-thumbnail" />
                 </div>

@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import Card from "../../../components/Card/card";
 import Slider from "../../../components/Slider/slider";
 import HomeData from "../../../data/HomeData";
