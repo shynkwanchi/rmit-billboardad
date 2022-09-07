@@ -1,34 +1,32 @@
 import { useLocation } from "react-router-dom";
 import Collapse from "../../../components/Collapse/collapse";
-import GenericPageData from "../../../data/GenericPageData";
+import { LoadPages, LoadSections } from "../../../middleware/load-data";
 import "./generic-page.css";
 
 const GenericPage = () => {
-    const location = useLocation();
+    // Load the page
+    const {pathname} = useLocation();
 
-    // Get the page object base on path name => The result will be an array
-    const page = GenericPageData.filter(page =>
-        page.path === location.pathname
+    const page = LoadPages().filter(page => 
+        page.path === pathname.substring(1)
     );
+    console.log(page);
 
-    // Get the array of sections
-    const pageContent = page[0].sections;
-
-    // console.log(pageContent);
+    const sections = LoadSections(page._id);
 
     return (
         <div className="container">
-            <h2 className="page-name">{page[0].pageName.toUpperCase()}</h2>
-            <p className="content">{page[0].pageDescription}</p>
+            <h2 className="page-name">{page.pageName}</h2>
+            <p className="content">{page.description}</p>
 
             <hr />
 
             {/* Page content here */}
             <div className="panel-group">
                 {
-                    pageContent.map(section =>
+                    sections.map(section =>
                         <>
-                            <Collapse sectionID={section.id} sectionName={section.name} sectionContent={section.content} />
+                            <Collapse sectionID={section._id} sectionName={section.sectionName} sectionContent={section.sectionContent} />
                         </>
                     )
                 }
@@ -37,7 +35,7 @@ const GenericPage = () => {
             <hr />
 
             <p className="content">If you have any problems when using our website, please contact us <a id="contact-us-link" href="#">HERE</a>.</p>
-            <p className="update-txt">Last updated on {page[0].updatedDate}.</p>
+            <p className="update-txt">Last updated on {page.lastUpdadted}.</p>
         </div>
     );
 }

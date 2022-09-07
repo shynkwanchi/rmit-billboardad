@@ -1,12 +1,15 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+const billboardRouter = express.Router();
+const billboardSchema = require("../models/Billboard");
 
-const Billboard = require('../models/Billboard')
-
-router.get('/', (req, res) => {
-    Billboard.find({}, (err, billboards) => {
-        res.send(billboards)
+// Count the number of billboards
+billboardRouter.get('/', (req, res) => {
+    billboardSchema.find({}, (err, billboards) => {
+        if (err) {
+            res.send(err);
+        }
+        res.send(billboards);
     })
 })
 
-module.exports = router;
+module.exports = billboardRouter;
