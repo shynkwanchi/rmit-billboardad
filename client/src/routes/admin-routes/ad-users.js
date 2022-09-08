@@ -8,7 +8,7 @@ export default function SeekUsers() {
 
     return (
         <>
-            <h1>Seeking Users</h1>
+            <h1>Users</h1>
 
             <div className="row filters">
                 <div className="col-6 col-sm-4 col-md-3 filter-container">
@@ -26,9 +26,9 @@ export default function SeekUsers() {
                     <ul className="listdata">
                         {/* need a data list of user to input here this one is just a static filter */}
                     </ul>
-
                 </div>
             
+
             </div>
         </>
     )
