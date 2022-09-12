@@ -23,38 +23,10 @@ export default function Users() {
         .then(data => setHuman(data))
     }, [_id]);
 
-    const save = (e, id) => {
-        e.preventDefault();
-        try {
-            fetch(`http://localhost:5000/pages/${id}`, {
-                method: "put",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name: human.name, email: human.email, phone: human.phone })
-            })
-                .then(res => {
-                    console.log(res)
-                    load()
-                })
-        }
-    }
+    const usersdata = LoadUsers(_id);
+    const navigate = useNavigate();
 
 
-    const deleteUsers = (id) => {
-            fetch(URL + "/" + id, {
-                method: "delete"
-            })
-                .then(res => {
-                    console.log(res)
-                    const newdata = data.filter((item) => {
-                        return item._id != id
-                    })
-                    setData(newdata)
-                })
-        }
-
-        const editUsers = ({ password: human.password, username: human.usersname })
         return (
             <div>
                 <h1>Users</h1>
