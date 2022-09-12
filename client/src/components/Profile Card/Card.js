@@ -1,6 +1,6 @@
 import React from "react";
 import "./Card.css";
-import { Card } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 import ModalContact from "../Modal Form Contact/ContactForm";
 
 const ProfileCard = () => {

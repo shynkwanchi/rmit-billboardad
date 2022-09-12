@@ -1,13 +1,28 @@
+// import React from "react";
+// import { useParams } from "react-router-dom";
+// import "./details.css";
+
+// // This is the billboard details page of the web application
+// const Details = () => {
+//     const {_id} = useParams();
+//     return(
+//         <p>Billboard's ID: {_id}</p>
+//     )
+// };
+
+// export default Details;
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './details.css';
-import Slider from "../../../components/Slider/slider";
-import ProfileCard from "../../../components/Profile Card/Card"
-import Features from "../../../components/Profile Card/MediaTable";
+import Slider from '../../../components/Slider/slider'
+import ProfileCard from '../../../components/Profile Card/Card'
+import Features from '../../../components/Profile Card/MediaTable';
+import HomeData from "../../../data/HomeData";
 
 function Details(){
     return(
         <main>
-            <Slider/>
+            <Slider slides={HomeData}/>
             <div className='container'>
                 <div className='row'>
                     <div className='col-auto'>
