@@ -1,13 +1,27 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import "./details.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './details.css';
+import Slider from "../../../components/Slider/slider";
+import ProfileCard from "../../../components/Profile Card/Card"
+import Features from "../../../components/Profile Card/MediaTable";
 
-// This is the billboard details page of the web application
-const Details = () => {
-    const {_id} = useParams();
+function Details(){
     return(
-        <p>Billboard's ID: {_id}</p>
-    )
-};
+        <main>
+            <Slider/>
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-auto'>
+                        <ProfileCard/>
+                    </div>
+                    
+                    <div className='col p-3'>
+                        <Features/>
+                    </div>
+                </div>
+            </div>
+        </main>
+    );
+
+}
 
 export default Details;

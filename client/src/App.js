@@ -17,6 +17,7 @@ import Section from "./routes/admin-routes/section";
 import LoginForm from "./components/LoginSignup/LoginForm";
 import SignupForm from "./components/LoginSignup/SignupForm";
 import BasicProfile from "./routes/user-routes/Profile/BasicProfile";
+import Users from "./routes/admin-routes/ad-users";
 
 function App() {
   return (
@@ -42,7 +43,7 @@ function App() {
         <Route element={<SideMenu />}>
           <Route path="/admin/" element={<Dashboard />}></Route>
           <Route path="/admin/billboards" element={<Billboards />}></Route>
-          <Route path="/admin/users"></Route>
+          <Route path="/admin/users"element={<Users/>}></Route>
           <Route path="/admin/orders"></Route>
           <Route path="/admin/pages" element={<Pages />}></Route>
           <Route

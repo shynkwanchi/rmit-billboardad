@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Details.css';
-import Slider from '../../component/Slider/Slider'
-import ProfileCard from '../../component/Profile Card/Card'
-import Features from '../../component/Profile Card/MediaTable';
+import Slider from '../../../component/Slider/Slider'
+import ProfileCard from '../../../component/Profile Card/Card'
+import Features from '../../../component/Profile Card/MediaTable';
 
 function Details(){
     return(

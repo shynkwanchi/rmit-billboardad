@@ -26,19 +26,20 @@ export default function Users() {
     }, [])
 
     const save = () => {
-        if (id === '') {
+        if (name === '') {
             fetch(URL, {
                 method: "post",
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ name: name, username: username, email: email, password: password, gender: gender, phone: phone })
+                body: JSON.stringify({ name: name, username: usersname, email: email, password: passwords, gender: gender, phone: phone })
             })
                 .then(res => {
                     console.log(res)
                     load()
                 })
         }
+
         else {
             fetch(URL, {
                 method: "put",
@@ -59,6 +60,7 @@ export default function Users() {
         setUsersname(usersname)
     }
     
+
     
     return (
         <>
@@ -77,7 +79,7 @@ export default function Users() {
 
                 <div className="col-6 col-sm-4 col-md-3 filter-container">
                     Name Search
-                    <input type="text" placeholder="Name here..." className="searching" />
+                    <input type="text" placeholder="Name here..." className="form-control" aria-label="Select billboard type" />
                     <ul className="listdata">
                         {/* need a data list of user to input here this one is just a static filter */}
                     </ul>
