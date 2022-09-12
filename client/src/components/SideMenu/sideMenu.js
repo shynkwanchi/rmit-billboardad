@@ -50,12 +50,6 @@ const SideMenu = () => {
                         </NavLink>
                     </li>
                     <li className="side-nav-link">
-                        <NavLink to="/admin/contacts">
-                            <span className="side-nav-icon"><em className="fas fa-comment"></em></span>
-                            <span className="title">Contacts</span>
-                        </NavLink>
-                    </li>
-                    <li className="side-nav-link">
                         <NavLink to="/admin/settings">
                             <span className="side-nav-icon"><em className="fas fa-cog"></em></span>
                             <span className="title">Settings</span>
@@ -74,14 +68,6 @@ const SideMenu = () => {
                 <div className="top-bar">
                     <div className="toggle" onClick={() => toggleMenu()}>
                         <em className="fas fa-bars"></em>
-                    </div>
-                    <div className="search-box">
-                        <label>
-                            <input type="text" placeholder="Search" />
-                            <em className="fas fa-search search-icon"></em>
-                        </label>
-                    </div>
-                    <div>
                     </div>
                 </div>
                 <div className="main-container">
