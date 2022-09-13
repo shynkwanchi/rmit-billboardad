@@ -50,6 +50,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     padding: 10px;
     border-radius: 10px;
+    background: white;
 }
 .number {
     font-size: 30px;
@@ -71,4 +72,24 @@
 .back-link:hover {
     color: #3aafa9;
     font-weight: bold;
+}
+
+.body {
+    background: linear-gradient(45deg, #80c0c0,#99cccc,#b3d9d9,#cce6e6);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from "./routes/user-routes/Home/home";
 import Details from "./routes/user-routes/Details/details";

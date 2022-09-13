@@ -6,6 +6,10 @@ import HomeData from "../../../data/HomeData";
 // This is the home page of the web application
 const Home = () => {
     const [billboards, setBillboard] = useState([]);
+    const [billboardType, setBillboardType] = useState("All");
+    const [billboardArea, setBillboardArea] = useState("All");
+    const [billboardPrice, setBillboardPrice] = useState("All");
+
     useEffect(()=>{
         fetch(`http://localhost:5000/billboards`)
         .then(res => res.json())
@@ -18,45 +22,72 @@ const Home = () => {
                 <div className="row filters">
                     <div className="col-6 col-sm-4 col-md-3 filter-container">
                         Billboard type
-                        <select className="form-select" aria-label="Select billboard type">
-                            <option defaultValue="0">All</option>
-                            <option value="1">Traditional</option>
-                            <option value="2">Digital</option>
+                        <select className="form-select" aria-label="Select billboard type" onChange={e => {
+                            let selectedType = e.target.value; setBillboardType(selectedType)
+                        }}>
+                            <option defaultValue="All">All</option>
+                            <option value="Traditional">Traditional</option>
+                            <option value="Digital">Digital</option>
                         </select>
                     </div>
-                    <div className="col-6 col-sm-4 col-md-3 filter-container">
+                    {/* <div className="col-6 col-sm-4 col-md-3 filter-container">
                         Topic
                         <select className="form-select" aria-label="Select topic">
-                            <option defaultValue="0">All</option>
-                            <option value="1">Topic 1</option>
-                            <option value="2">Topic 2</option>
-                            <option value="3">Topic 3</option>
+                            <option defaultValue="All">All</option>
+                            <option value="Topic 1">Topic 1</option>
+                            <option value="Topic 2">Topic 2</option>
+                            <option value="Topic 3">Topic 3</option>
                         </select>
-                    </div>
+                    </div> */}
                     <div className="col-6 col-sm-4 col-md-3 filter-container">
                         Price range
-                        <select className="form-select" aria-label="Select price range">
-                            <option defaultValue="0">All</option>
-                            <option value="1">Range 1</option>
-                            <option value="2">Range 2</option>
-                            <option value="3">Range 3</option>
+                        <select className="form-select" aria-label="Select price range" onChange={e => {
+                            let selectedType;
+                            e.target.value === "All" ? selectedType = String(e.target.value) : selectedType = Number(e.target.value);
+                            setBillboardPrice(selectedType)
+                        }}>
+                            <option value={"All"}>All</option>
+                            <option value={10000000}>{"<"} 10.000.000 VND</option>
+                            <option value={30000000}>{"<"} 30.000.000 VND</option>
+                            <option value={50000000}>{"<"} 50.000.000 VND</option>
                         </select>
                     </div>
                     <div className="col-6 col-sm-4 col-md-3 filter-container">
                         Area
-                        <select className="form-select" aria-label="Select area">
-                            <option defaultValue="0">All</option>
-                            <option value="1">Area 1</option>
-                            <option value="2">Area 2</option>
-                            <option value="3">Area 3</option>
+                        <select className="form-select" aria-label="Select area" onChange={e => {
+                            let selectedType = e.target.value; setBillboardArea(selectedType)
+                        }}>
+                            <option defaultValue="All">All</option>
+                            <option value="District 1">District 1</option>
+                            <option value="District 2">District 2</option>
+                            <option value="District 3">District 3</option>
                         </select>
                     </div>
                 </div>
                 <div className="row" id="items">
-                        <Card id={billboards[0]?._id} title={billboards[0]?.title} description={billboards[0]?.description} price={billboards[0]?.price}/>
-                        <Card id={billboards[1]?._id} title={billboards[1]?.title} description={billboards[1]?.description} price={billboards[1]?.price}/>
-                        <Card id={billboards[2]?._id} title={billboards[2]?.title} description={billboards[2]?.description} price={billboards[2]?.price}/>
-                        <Card id={billboards[3]?._id} title={billboards[3]?.title} description={billboards[3]?.description} price={billboards[3]?.price}/>
+                    {billboards.filter(item => 
+                        {
+                            if(billboardType === "All" && billboardArea === "All" && billboardPrice === "All"){
+                                return item.type === "Digital" || item.type === "Traditional" || item.area === "District 1"  || item.area === "District 2"  || item.area === "District 3" || item.price !== null
+                            }else if(billboardType !== "All" && billboardArea === "All" && billboardPrice === "All"){
+                                return item.type === billboardType && (item.area === "District 1"  || item.area === "District 2"  || item.area === "District 3" || item.price !== null)
+                            }else if(billboardType === "All" && billboardArea !== "All" && billboardPrice === "All"){
+                                return (item.type === "Digital" || item.type === "Traditional") && item.area === billboardArea && item.price !== null
+                            }else if(billboardType === "All" && billboardArea === "All" && billboardPrice !== "All"){
+                                return (item.type === "Digital" || item.type === "Traditional") && (item.area === "District 1"  || item.area === "District 2"  || item.area === "District 3") && item.price < billboardPrice
+                            }else if(billboardType !== "All" && billboardArea !== "All" && billboardPrice === "All"){
+                                return item.type === billboardType && item.area === billboardArea && item.price !== null
+                            }else if(billboardType !== "All" && billboardArea === "All" && billboardPrice !== "All"){
+                                return item.type === billboardType && (item.area === "District 1"  || item.area === "District 2"  || item.area === "District 3") && item.price < billboardPrice
+                            }else if(billboardType === "All" && billboardArea !== "All" && billboardPrice !== "All"){
+                                return (item.type === "Digital" || item.type === "Traditional") && item.area === billboardArea && item.price < billboardPrice
+                            }else{
+                                return item.type === billboardType && item.area === billboardArea && item.price < billboardPrice
+                            }
+                        }
+                    ).map(filteredItem => 
+                        <Card id={filteredItem?._id} title={filteredItem?.title} description={filteredItem?.description} price={filteredItem?.price}></Card>
+                    )}
                 </div>
             </div>
         </main>

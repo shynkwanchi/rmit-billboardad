@@ -13,6 +13,12 @@ const BillboardSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: 'No Information'
+    },
+    type:{
+        type: String,
+    },
+    area:{
+        type: String
     }
 });
 
