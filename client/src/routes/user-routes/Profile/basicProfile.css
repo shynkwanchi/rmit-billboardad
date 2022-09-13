@@ -6,7 +6,8 @@
   position: relative;
 }
 .main-body {
-  padding: 10px;
+  padding: 15px;
+  margin-top: 12px;
 }
 
 .input {

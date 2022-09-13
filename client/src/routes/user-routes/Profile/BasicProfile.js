@@ -16,7 +16,6 @@ export default function BasicProfile() {
   const [displayError, setDisplayError] = useState({});
 
   const token = sessionStorage.getItem("token");
-
   const navigate = useNavigate();
 
   const userToken = async () => {
@@ -109,8 +108,7 @@ export default function BasicProfile() {
 
   return (
     <div className="container main-body">
-      <div className="row ">
-        <div className="col-md-3">Navigation Switch</div>
+      <div className="row">
         <div className="col-md-9">
           <h1 className="h1 mb-4">My Account</h1>
           <div className="row">

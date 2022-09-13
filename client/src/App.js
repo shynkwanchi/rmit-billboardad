@@ -35,7 +35,7 @@ function App() {
           <Route element={<Tab />}>
             <Route path="/my-billboards" element={<MyBillboards />}></Route>
             <Route path="/my-orders" element={<MyOrders />}></Route>
-            <Route path="/my-account" element={<MyAccount />}></Route>
+            <Route path="/my-account" element={<BasicProfile />}></Route>
           </Route>
         </Route>
 
