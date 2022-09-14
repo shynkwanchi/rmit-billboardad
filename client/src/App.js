@@ -6,7 +6,7 @@ import Details from "./routes/user-routes/Details/details";
 import MyBillboards from "./routes/user-routes/Profile/my-billboards";
 import GenericPage from "./routes/user-routes/GenericPage/generic-page";
 import Tab from "./components/Tab/tab";
-import MyOrders from "./routes/user-routes/Profile/my-orders";
+import MyMessages from "./routes/user-routes/Profile/my-messages";
 import MyAccount from "./routes/user-routes/Profile/my-account";
 import NavBar from "./components/NavBar/NavBar";
 import Billboards from "./routes/admin-routes/ad-billboards";
@@ -36,7 +36,7 @@ function App() {
 
           <Route element={<Tab />}>
             <Route path="/my-billboards" element={<MyBillboards />}></Route>
-            <Route path="/my-orders" element={<MyOrders />}></Route>
+            <Route path="/my-messages" element={<MyMessages />}></Route>
             <Route path="/my-account" element={<BasicProfile />}></Route>
           </Route>
         </Route>

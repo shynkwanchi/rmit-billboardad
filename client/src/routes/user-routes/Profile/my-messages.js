@@ -2,7 +2,7 @@ import "./profile.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const MyOrders = () => {
+const MyMessages = () => {
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
 
@@ -19,9 +19,9 @@ const MyOrders = () => {
   userToken();
   return (
     <>
-      <h2 className="tab-header">My Orders</h2>
+      <h2 className="tab-header">My Messages</h2>
     </>
   );
 };
 
-export default MyOrders;
+export default MyMessages;
