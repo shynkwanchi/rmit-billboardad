@@ -9,7 +9,6 @@ import Tab from "./components/Tab/tab";
 import MyOrders from "./routes/user-routes/Profile/my-orders";
 import MyAccount from "./routes/user-routes/Profile/my-account";
 import NavBar from "./components/NavBar/NavBar";
-import Footer from "./components/Footer/Footer";
 import Billboards from "./routes/admin-routes/ad-billboards";
 import Pages from "./routes/admin-routes/ad-pages";
 import SideMenu from "./components/SideMenu/sideMenu";
@@ -25,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={[<NavBar />, <Footer/>]}>
+        <Route element={<NavBar />}>
           <Route path="/" element={<Home />}></Route>
           <Route path="/details/:_id" element={<Details />}></Route>
           <Route path="/article/:path" element={<GenericPage />}></Route>

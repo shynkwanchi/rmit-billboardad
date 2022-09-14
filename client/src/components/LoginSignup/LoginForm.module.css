@@ -6,11 +6,12 @@
   box-sizing: border-box;
   position: relative;
   margin: auto;
-
+  padding: 10px;
   background: #def2f1;
   border: 1px solid #def2f1;
   border-radius: 25px;
   align-items: center;
+  margin-top: 3%;
 }
 
 .form {
