@@ -12,17 +12,14 @@ const ProfileCard = () => {
   }
 
   return (
-    <div>
-      <Card style={{ width: "18rem" }} className="box">
-        <Card.Img variant="top" src={cardDetail.image} />
-        <Card.Body>
-          <Card.Title>{cardDetail.title}</Card.Title>
-          {/* <Card.Text>{card.text}</Card.Text> */}
-          <ModalContact />
-        </Card.Body>
-      </Card>
-      <Card />
-    </div>
+    <Card style={{ width: "18rem" }} className="box">
+      <Card.Img variant="top" src={cardDetail.image} className="image-box" />
+      <Card.Body>
+        <Card.Title>{cardDetail.title}</Card.Title>
+        {/* <Card.Text>{card.text}</Card.Text> */}
+        <ModalContact />
+      </Card.Body>
+    </Card>
   );
 };
 
