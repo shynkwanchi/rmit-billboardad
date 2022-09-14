@@ -86,6 +86,9 @@ billboardRouter.post(
           billboardImg: final_img,
         });
         await newBillboard.save();
+        fs.unlink(req.file.path, (err) => {
+          if (err) throw err;
+        });
         return res
           .status(200)
           .json({ successMsg: "New billboard successfully added!" });
