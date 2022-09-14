@@ -5,7 +5,7 @@ import "./profile.css";
 import AddBillBoardModal from '../../../components/Add Billboard Modal/index'
 
 const MyBillboards = () => {
-  const [userEmail] = useState(sessionStorage.getItem("userEmail"));
+  const [ownerEmail] = useState(sessionStorage.getItem("userEmail"));
   const [billboards, setBillboards] = useState([]);
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
@@ -20,6 +20,11 @@ const MyBillboards = () => {
     userToken();
   }, []);
 
+  useEffect(()=>{
+    fetch(`http://localhost:5000/billboards/my-billboards/${ownerEmail}`)
+    .then(res => res.json())
+    .then(data => setBillboards(data))
+}, [billboards])
 
   userToken();
 
@@ -48,7 +53,7 @@ const MyBillboards = () => {
         </div>
       </div>
       <div className="row" id="items">
-        <Card></Card>
+        {billboards.map(item => <Card id={item?._id} title={item?.title} description={item?.description} price={item?.price}></Card>)}
       </div>
     </>
   );

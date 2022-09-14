@@ -12,6 +12,17 @@ billboardRouter.get('/', (req, res) => {
     })
 })
 
+// Count the number of billboards
+billboardRouter.get('/my-billboards/:email', (req, res) => {
+    const owner = req.params.email
+    billboardSchema.find({owner:owner}, (err, billboards) => {
+        if (err) {
+            res.send(err);
+        }
+        res.send(billboards);
+    })
+})
+
 // Add a new billboard
 billboardRouter.post('/', async function(req, res){
     try {
