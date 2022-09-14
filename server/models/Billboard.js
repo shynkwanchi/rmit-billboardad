@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const BillboardSchema = new mongoose.Schema({
+    owner:{
+        type: String,
+        required: true
+    },
     title:{
         type: String,
         required: true
@@ -11,14 +15,19 @@ const BillboardSchema = new mongoose.Schema({
     },
     description:{
         type: String,
-        required: true,
         default: 'No Information'
     },
     type:{
         type: String,
+        required: true
     },
     area:{
-        type: String
+        type: String,
+        required: true
+    },
+    status:{
+        type: String,
+        default: "Available"
     }
 });
 

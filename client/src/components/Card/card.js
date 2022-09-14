@@ -12,7 +12,7 @@ const Card = props => {
                 </div>
                 <p className="title">{props.title}</p>
                 <p className="description">{props.description}</p>
-                <p className="price">{props.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})} / year</p>
+                <p className="price">{props.price? props.price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'}): props.price} / year</p>
             </Link>
         </div>
     )
