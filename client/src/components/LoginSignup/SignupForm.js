@@ -56,14 +56,11 @@ function SignupForm() {
 
   const validate = (values) => {
     const errors = {};
-    const emailRegex = new RegExp(
-      "^[a-zA-Z0-9]+@[a-zA-Z0-9.-]+.[a-zA-Z]$"
-    );
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     const passwordRegex = new RegExp(
       "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
     );
     const nameRegex = new RegExp("^[a-zA-Z_ ]*$");
-    const phoneRegex = new RegExp("^[0-9]*$");
 
     if (!values.email) {
       errors.email = "Email is required!";
@@ -88,7 +85,7 @@ function SignupForm() {
     }
     if (!values.phone) {
       errors.phone = "Phone number is required!";
-    } else if (values.phone.length < 10 || values.phone.length > 11 || !phoneRegex.test(values.phone)) {
+    } else if (values.phone.length < 10 || values.phone.length > 11) {
       errors.phone = "This is not a valid phone number!";
     }
     return errors;
