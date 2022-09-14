@@ -70,7 +70,7 @@ const MyBillboards = () => {
           else{
             return item.type === billboardType && item.status === billboardStatus
           }
-        }).map(filteredItem => <Card id={filteredItem?._id} title={filteredItem?.title} description={filteredItem?.description} price={filteredItem?.price}></Card>)}
+        }).map(filteredItem => <Card id={filteredItem?._id} title={filteredItem?.title} description={filteredItem?.description} price={filteredItem?.price} billboardImg={filteredItem.billboardImg}></Card>)}
         
       </div>
     </>

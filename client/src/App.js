@@ -33,7 +33,6 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/profile" element={<BasicProfile />} />
-          <Route path="/admin/login" element={<AdminLogin />}></Route>
 
           <Route element={<Tab />}>
             <Route path="/my-billboards" element={<MyBillboards />}></Route>
@@ -41,6 +40,8 @@ function App() {
             <Route path="/my-account" element={<BasicProfile />}></Route>
           </Route>
         </Route>
+
+        <Route path="/admin/login" element={<AdminLogin />}></Route>
 
         {/* Route for admin */}
         <Route element={<SideMenu />}>
