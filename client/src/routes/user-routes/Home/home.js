@@ -3,6 +3,7 @@ import './home.css';
 import Card from "../../../components/Card/card";
 import Slider from "../../../components/Slider/slider";
 import HomeData from "../../../data/HomeData";
+import Spinner from 'react-bootstrap/Spinner';
 
 // This is the home page of the web application
 const Home = () => {
@@ -10,11 +11,12 @@ const Home = () => {
     const [billboardType, setBillboardType] = useState("All");
     const [billboardArea, setBillboardArea] = useState("All");
     const [billboardPrice, setBillboardPrice] = useState("All");
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
         fetch(`http://localhost:5000/billboards`)
         .then(res => res.json())
-        .then(data => setBillboard(data))
+        .then(data => {setBillboard(data);setLoading(true);})
     }, [billboards])
     return (
         <main>
@@ -65,6 +67,13 @@ const Home = () => {
                         </select>
                     </div>
                 </div>
+                
+                {!loading ?
+                <div>
+                    <Spinner animation="grow" /><Spinner animation="grow" /><Spinner animation="grow" />
+                </div>
+                : null}
+                
                 <div className="row" id="items">
                     {billboards.filter(item => 
                         {
