@@ -1,8 +1,11 @@
+
+
 .item-container {
     padding: 12px;
     cursor: pointer;
     transition: all 0.5s ease;
     border-radius: 5px;
+    background: white;
 }
 
 .item-container:hover {
