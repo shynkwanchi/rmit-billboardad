@@ -17,6 +17,9 @@ function LoginForm() {
       const url = "http://localhost:5000/api/auth";
       const { data: res } = await axios.post(url, data);
       sessionStorage.setItem("token", res.data);
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('userEmail', data.email);
+      }
       window.location = "/";
       console.log(res.message);
     } catch (error) {
