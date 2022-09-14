@@ -40,7 +40,7 @@ const Home = () => {
                             <option value="Topic 3">Topic 3</option>
                         </select>
                     </div> */}
-                    <div className="col-6 col-sm-4 col-md-4 filter-container">
+                    <div className="col-6 col-sm-4 col-md-3 filter-container">
                         Price range
                         <select className="form-select" aria-label="Select price range" onChange={e => {
                             let selectedType;
