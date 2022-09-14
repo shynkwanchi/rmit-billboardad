@@ -21,10 +21,10 @@ Last updated: To be added.
 + Lu Minh Khang - s3863969.
 
 ### 2) Contributions
-+ Thien Di (--%): Full-stack developer.
-+ Quang Duy (--%): UX/UI Designer, Full-stack developer.
-+ Trong Hoang (--%): UX/UI Designer, Full-stack developer.
-+ Minh Khang (--%): UX/UI Designer, Front-end developer.
++ Thien Di (25%): Back-end developer.
++ Quang Duy (25%): UX/UI Designer, Full-stack developer.
++ Trong Hoang (25%): UX/UI Designer, Back-end developer.
++ Minh Khang (25%): UX/UI Designer, Front-end developer.
 
 ## Project Details
 ### 1) Description
@@ -39,7 +39,7 @@ To be added
 ### 4) Non-functional requirements
 + To be added
 ### 5) Links
-+ Github repository: https://github.com/shynkwanchi/billboardad
++ Github repository: https://github.com/shynkwanchi/rmit-billboardad
 + UX/UI Design (Figma): https://www.figma.com/file/OdJedCtoKoRmk7nkua6E90/BillBoarDad---A-billboard-booking-web-application?node-id=0%3A1
 + Techical report: https://docs.google.com/document/d/1UtM308DMx_Kf3Nah_dX5ROpqE5GgzwRKs2pJHOv8DQY/edit?usp=sharing
 + Demo video: To be added
