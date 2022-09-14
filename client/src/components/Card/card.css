@@ -1,15 +1,14 @@
 
-
 .item-container {
+    margin: 1px;
     padding: 12px;
     cursor: pointer;
     transition: all 0.5s ease;
     border-radius: 5px;
-    background: white;
 }
 
 .item-container:hover {
-    background: #def2f1;
+    background: #394545;
 }
 
 .item-container:hover a {
@@ -18,7 +17,7 @@
 }
 
 .item-container .image-container {
-    margin: 0 auto 10px;
+    margin: 1 auto 10px;
     overflow: hidden;
     height: 200px;
     border-radius: 5px;
