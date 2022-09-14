@@ -14,6 +14,7 @@ export default function BasicProfile() {
   });
   const [updateError, setUpdateError] = useState({});
   const [displayError, setDisplayError] = useState({});
+  const [file, setFile] = useState(null);
 
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
@@ -92,7 +93,7 @@ export default function BasicProfile() {
       phone: userData.phone,
       username: userData.username,
       name: userData.name,
-      gender: userData.gender
+      gender: userData.gender,
     };
 
     if (Object.keys(updateError).length === 0) {
@@ -104,6 +105,31 @@ export default function BasicProfile() {
         console.log(err);
       }
     }
+  };
+
+
+  const onInputChange = (e) => {
+    setFile(e.target.files[0]);
+  };
+
+  const onFormSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("profileImg", file);
+    formData.append("_id", userData._id)
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    }; 
+
+    await axios
+      .post("http://localhost:5000/api/uploadProfileImg", formData, config)
+      .then((res) => {
+        alert("Image Upload Successfully!");
+      }).catch((err)=> {console.log(err)});
+      userToken();
   };
 
   return (
@@ -124,26 +150,16 @@ export default function BasicProfile() {
                 )}
               </div>
               <div>
-                <form
-                  action="http://localhost:5000/api/uploadProfileImg"
-                  enctype="multipart/form-data"
-                  method="post"
-                >
-                  <input type="hidden" name="_id" value={userData._id} />
+                <form onSubmit={onFormSubmit}>
                   <input
                     className="my-1"
                     type="file"
                     name="profileImg"
                     accept="image/*"
+                    onChange={onInputChange}
                     required
                   />
-                  <input
-                    type="submit"
-                    value="Update Image"
-                    onClick={() => {
-                      setTimeout(userToken, 444);
-                    }}
-                  />
+                  <input type="submit" value="Update Image" />
                 </form>
               </div>
             </div>

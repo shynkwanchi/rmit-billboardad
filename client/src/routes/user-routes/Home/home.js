@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from "react";
+import './home.css';
 import Card from "../../../components/Card/card";
 import Slider from "../../../components/Slider/slider";
 import HomeData from "../../../data/HomeData";
@@ -20,7 +21,7 @@ const Home = () => {
             <Slider slides={HomeData} />
             <div className="container">
                 <div className="row filters">
-                    <div className="col-6 col-sm-4 col-md-3 filter-container">
+                    <div className="col-6 col-sm-4 col-md-4 filter-container">
                         Billboard type
                         <select className="form-select" aria-label="Select billboard type" onChange={e => {
                             let selectedType = e.target.value; setBillboardType(selectedType)
@@ -39,7 +40,7 @@ const Home = () => {
                             <option value="Topic 3">Topic 3</option>
                         </select>
                     </div> */}
-                    <div className="col-6 col-sm-4 col-md-3 filter-container">
+                    <div className="col-6 col-sm-4 col-md-4 filter-container">
                         Price range
                         <select className="form-select" aria-label="Select price range" onChange={e => {
                             let selectedType;
@@ -52,7 +53,7 @@ const Home = () => {
                             <option value={50000000}>{"<"} 50.000.000 VND</option>
                         </select>
                     </div>
-                    <div className="col-6 col-sm-4 col-md-3 filter-container">
+                    <div className="col-6 col-sm-4 col-md-4 filter-container">
                         Area
                         <select className="form-select" aria-label="Select area" onChange={e => {
                             let selectedType = e.target.value; setBillboardArea(selectedType)
