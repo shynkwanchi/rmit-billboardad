@@ -28,7 +28,8 @@ const BillboardSchema = new mongoose.Schema({
     status:{
         type: String,
         default: "Available"
-    }
+    },
+    billboardImg: { type: Object },
 });
 
 module.exports = mongoose.model('BillBoard', BillboardSchema);
