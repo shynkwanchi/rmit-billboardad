@@ -127,9 +127,9 @@ export default function BasicProfile() {
     await axios
       .post("http://localhost:5000/api/uploadProfileImg", formData, config)
       .then((res) => {
+        userToken();
         alert("Image Upload Successfully!");
       }).catch((err)=> {console.log(err)});
-      userToken();
   };
 
   return (
