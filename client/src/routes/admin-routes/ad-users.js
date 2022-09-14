@@ -1,8 +1,25 @@
 import { LoadUsers } from "../../middleware/load-data";
 import { getResponse } from "../../middleware/response";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import "./admin-panel.css";
 
 export default function Users() {
+
+const admin = sessionStorage.getItem("admin");
+const navigate = useNavigate();
+
+const authenticate = () => {
+  if (!admin) {
+    navigate("/login");
+  }
+};
+
+useEffect(() => {
+  authenticate();
+});
+
     const users = LoadUsers();
 
     const deleteUser = (e, id) => {

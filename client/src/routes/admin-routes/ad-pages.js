@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getResponse } from "../../middleware/response";
 import { LoadPages } from "../../middleware/load-data";
 import "./admin-panel.css";
 
 const Pages = () => {
+    
     const [pageName, setPageName] = useState('');
     const [path, setPath] = useState('');
     const [description, setDescription] = useState('');
     const pages = LoadPages();
     const navigate = useNavigate();
+
+    const admin = sessionStorage.getItem("admin");
+
+    const authenticate = () => {
+      if (!admin) {
+        navigate("/login");
+      }
+    };
+
+    useEffect(() => {
+      authenticate();
+    });
 
     const addPage = (e) => {
         e.preventDefault();
