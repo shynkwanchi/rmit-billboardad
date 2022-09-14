@@ -1,9 +1,12 @@
 import Card from "../../../components/Card/card";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./profile.css";
+import AddBillBoardModal from '../../../components/Add Billboard Modal/index'
 
 const MyBillboards = () => {
+  const [userEmail] = useState(sessionStorage.getItem("userEmail"));
+  const [billboards, setBillboards] = useState([]);
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
 
@@ -13,9 +16,9 @@ const MyBillboards = () => {
     }
   };
 
-    useEffect(() => {
-      userToken();
-    }, []);
+  useEffect(() => {
+    userToken();
+  }, []);
 
 
   userToken();
@@ -41,16 +44,11 @@ const MyBillboards = () => {
           </select>
         </div>
         <div className="col-12 col-sm-6 col-md-4 btn-container">
-          <button className="btn create-new-btn">
-            <em className="fas fa-plus"></em> Create new
-          </button>
+          <AddBillBoardModal/>
         </div>
       </div>
       <div className="row" id="items">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        <Card></Card>
       </div>
     </>
   );
