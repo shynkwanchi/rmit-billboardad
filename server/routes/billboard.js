@@ -12,7 +12,7 @@ billboardRouter.get('/', (req, res) => {
     })
 })
 
-// Count the number of billboards
+// Get a billboard based on user's email
 billboardRouter.get('/my-billboards/:email', (req, res) => {
     const owner = req.params.email
     billboardSchema.find({owner:owner}, (err, billboards) => {

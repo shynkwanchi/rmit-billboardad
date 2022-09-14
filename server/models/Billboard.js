@@ -24,6 +24,10 @@ const BillboardSchema = new mongoose.Schema({
     area:{
         type: String,
         required: true
+    },
+    status:{
+        type: String,
+        default: "Available"
     }
 });
 

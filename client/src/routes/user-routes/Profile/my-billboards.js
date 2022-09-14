@@ -7,6 +7,8 @@ import AddBillBoardModal from '../../../components/Add Billboard Modal/index'
 const MyBillboards = () => {
   const [ownerEmail] = useState(sessionStorage.getItem("userEmail"));
   const [billboards, setBillboards] = useState([]);
+  const [billboardType, setBillboardType] = useState("All");
+  const [billboardStatus, setBillboardStatus] = useState("All");
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
 
@@ -34,18 +36,22 @@ const MyBillboards = () => {
       <div className="row filters">
         <div className="col-6 col-sm-3 filter-container">
           Billboard type
-          <select className="form-select" aria-label="Select billboard type">
-            <option defaultValue="0">All</option>
-            <option value="1">Traditional</option>
-            <option value="2">Digital</option>
+          <select className="form-select" aria-label="Select billboard type" onChange={e => {
+                            let selectedType = e.target.value; setBillboardType(selectedType)
+                        }}>
+            <option defaultValue="All">All</option>
+            <option value="Traditional">Traditional</option>
+            <option value="Digital">Digital</option>
           </select>
         </div>
         <div className="col-6 col-sm-3 filter-container">
           Status
-          <select className="form-select" aria-label="Select status">
-            <option defaultValue="0">All</option>
-            <option value="1">Available</option>
-            <option value="2">Occupied</option>
+          <select className="form-select" aria-label="Select status" onChange={e => {
+                            let selectedType = e.target.value; setBillboardStatus(selectedType)
+                        }}>
+            <option defaultValue="All">All</option>
+            <option value="Available">Available</option>
+            <option value="Occupied">Occupied</option>
           </select>
         </div>
         <div className="col-12 col-sm-6 col-md-4 btn-container">
@@ -53,7 +59,19 @@ const MyBillboards = () => {
         </div>
       </div>
       <div className="row" id="items">
-        {billboards.map(item => <Card id={item?._id} title={item?.title} description={item?.description} price={item?.price}></Card>)}
+        {billboards.filter(item => {
+          if(billboardType === "All" && billboardStatus === "All"){
+            return item.type === "Digital" || item.type === "Traditional" || item.status === "Available" || item.status === "Occupied"
+          }else if(billboardType === "All" && billboardStatus !== "All"){
+            return (item.type === "Digital" || item.type === "Traditional") && item.status === billboardStatus
+          }else if(billboardType !== "All" && billboardStatus === "All"){
+            return item.type === billboardType && (item.status === "Available" || item.status === "Occupied")
+          }
+          else{
+            return item.type === billboardType && item.status === billboardStatus
+          }
+        }).map(filteredItem => <Card id={filteredItem?._id} title={filteredItem?.title} description={filteredItem?.description} price={filteredItem?.price}></Card>)}
+        
       </div>
     </>
   );

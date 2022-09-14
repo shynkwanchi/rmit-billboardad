@@ -65,8 +65,8 @@ function ModalContact() {
                     <Form.Label>Type</Form.Label>
                     <Form.Select aria-label="Default select example" value={type} onChange={handleChangeType}>
                         <option disabled>Type of the billboard</option>
-                        <option value="traditional">Traditional</option>
-                        <option value="digital">Digital</option>
+                        <option value="Traditional">Traditional</option>
+                        <option value="Digital">Digital</option>
                     </Form.Select>
                 </Form.Group>
 
@@ -74,9 +74,9 @@ function ModalContact() {
                     <Form.Label>Area</Form.Label>
                     <Form.Select aria-label="Default select example" value={area} onChange={handleChangeArea}>
                         <option disabled>Area in which the billboard is located</option>
-                        <option value="district 1">District 1</option>
-                        <option value="district 2">District 2</option>
-                        <option value="district 3">District 3</option>
+                        <option value="District 1">District 1</option>
+                        <option value="District 2">District 2</option>
+                        <option value="District 3">District 3</option>
                     </Form.Select>
                 </Form.Group>
 
