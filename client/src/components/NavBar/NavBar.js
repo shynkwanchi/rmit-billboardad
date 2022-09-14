@@ -35,9 +35,9 @@ export default function NavBar() {
               <NavLink className="nav-link link" to="/">
                 Home
               </NavLink>
-              <NavLink className="nav-link link" to="/contacts">
+              {/* <NavLink className="nav-link link" to="/contacts">
                 Contacts
-              </NavLink>
+              </NavLink> */}
               <NavLink className="nav-link link" to="/my-billboards">
                 Profile
               </NavLink>
