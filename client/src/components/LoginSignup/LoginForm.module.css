@@ -4,14 +4,13 @@
   font-family: "Spectral", serif;
   font-size: 20px;
   box-sizing: border-box;
-  position: flex;
+  position: relative;
   margin: auto;
-  padding: 12px;
+
   background: #def2f1;
   border: 1px solid #def2f1;
   border-radius: 25px;
   align-items: center;
-  margin-top: 3%;
 }
 
 .form {
