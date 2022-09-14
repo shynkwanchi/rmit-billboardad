@@ -36,14 +36,13 @@ router.post("/", upload.single("profileImg"), async (req, res) => {
           },
         }
       );
-      console.log("Saved To database");
       fs.unlink(req.file.path, (err) => {
         if (err) throw err;
       });
-      res.status(200);
+      res.status(200).send({messge: "Success"});
     } catch (err) {
       console.error(err);
-      res.status(500).send({ message: "Internal Server Error!" });
+      res.status(500);
     }
   }
 });
