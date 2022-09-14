@@ -45,15 +45,8 @@ billboardRouter.post(
   upload.single("billboardImg"),
   async function (req, res) {
     if (req.fileValidationError) {
-      return res.status(500);
-    } else {
-      var img = fs.readFileSync(req.file.path);
-      var encode_img = img.toString("base64");
-      var final_img = {
-        contentType: req.file.mimetype,
-        image: new Buffer.from(encode_img, "base64").toString("base64"),
-      };
-
+      return res.status(500).send("Not a correct file type");
+    } else if(req.file) {
       try {
         const owner = req.body.owner;
         const title = req.body.title;
@@ -61,19 +54,25 @@ billboardRouter.post(
         const description = req.body.description;
         const area = req.body.area;
         const billboardType = req.body.type;
+        var img = fs.readFileSync(req.file.path);
+        var encode_img = img.toString("base64");
+        var final_img = {
+          contentType: req.file.mimetype,
+          image: new Buffer.from(encode_img, "base64").toString("base64"),
+        };
 
         // Check if title input is empty
         if (!title)
-          return res.status(400).json({ errMsg: "Please enter the title!" });
+          return res.status(400).json("Please enter the title!" );
         // Check if type input is empty
         if (!billboardType)
-          return res.status(400).json({ errMsg: "Please enter the type!" });
+          return res.status(400).send("Please enter the type!" );
         // Check if area input is empty
         if (!area)
-          return res.status(400).json({ errMsg: "Please enter the area!" });
+          return res.status(400).send("Please enter the area!" );
         // Check if price input is empty
         if (!price)
-          return res.status(400).json({ errMsg: "Please enter the price!" });
+          return res.status(400).send("Please enter the price!");
 
         // Add new billboard
         const newBillboard = new billboardSchema({
@@ -91,13 +90,15 @@ billboardRouter.post(
         });
         return res
           .status(200)
-          .json({ successMsg: "New billboard successfully added!" });
+          .send( "New billboard successfully added!");
       } catch (err) {
         console.error(err);
         return res
           .status(500)
-          .json({ errMsg: "Something went wrong! Please try again." });
+          .send("Something went wrong! Please try again.");
       }
+    } else {
+      return res.status(500).send("No file found");
     }
   }
 );

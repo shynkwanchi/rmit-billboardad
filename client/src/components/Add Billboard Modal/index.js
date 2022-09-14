@@ -68,10 +68,11 @@ function ModalContact() {
     await axios
       .post("http://localhost:5000/billboards/", formData, config)
       .then((res) => {
-        alert("Image Upload Successfully!");
+        alert(res.data);
       })
       .catch((err) => {
         console.log(err);
+        alert(err.response.data);
       });
   };
 
@@ -97,6 +98,7 @@ function ModalContact() {
                 name="billboard_tile"
                 placeholder="Ex: Billboard at Turtle Lake, HCM"
                 autoFocus
+                required
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -112,6 +114,7 @@ function ModalContact() {
                 type="file"
                 name="billboardImg"
                 accept="image/*"
+                required
                 onChange={onInputChange}
               />
             </Form.Group>
@@ -121,6 +124,7 @@ function ModalContact() {
               <Form.Select
                 aria-label="Default select example"
                 value={type}
+                required
                 onChange={handleChangeType}
               >
                 <option disabled>Type of the billboard</option>
@@ -137,6 +141,7 @@ function ModalContact() {
               <Form.Select
                 aria-label="Default select example"
                 value={area}
+                required
                 onChange={handleChangeArea}
               >
                 <option disabled>Area in which the billboard is located</option>
@@ -155,6 +160,7 @@ function ModalContact() {
                 <Form.Control
                   type="text"
                   placeholder="Price for renting per year"
+                  required
                   onChange={(e) => {
                     setPrice(e.target.value);
                   }}
@@ -171,6 +177,7 @@ function ModalContact() {
               <Form.Control
                 as="textarea"
                 rows={3}
+                required
                 onChange={(e) => {
                   setDescription(e.target.value);
                 }}
