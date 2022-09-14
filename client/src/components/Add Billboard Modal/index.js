@@ -7,8 +7,8 @@ import axios from "axios";
 function ModalContact() {
   const [owner] = useState(sessionStorage.getItem("userEmail"));
   const [title, setTitle] = useState("");
-  const [type, setType] = useState("traditional");
-  const [area, setArea] = useState("district 1");
+  const [type, setType] = useState("Traditional");
+  const [area, setArea] = useState("District 1");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
@@ -54,7 +54,7 @@ function ModalContact() {
     const formData = new FormData();
     formData.append("billboardImg", file);
     formData.append("owner", owner);
-     formData.append("title", title);
+    formData.append("title", title);
     formData.append("type", type);
     formData.append("area", area);
     formData.append("price", price);
