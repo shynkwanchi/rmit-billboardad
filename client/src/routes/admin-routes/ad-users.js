@@ -12,7 +12,7 @@ const navigate = useNavigate();
 
 const authenticate = () => {
   if (!admin) {
-    navigate("/login");
+    navigate("/admin/login");
   }
 };
 

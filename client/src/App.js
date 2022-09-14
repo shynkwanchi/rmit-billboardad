@@ -19,6 +19,7 @@ import LoginForm from "./components/LoginSignup/LoginForm";
 import SignupForm from "./components/LoginSignup/SignupForm";
 import BasicProfile from "./routes/user-routes/Profile/BasicProfile";
 import Users from "./routes/admin-routes/ad-users";
+import AdminLogin from "./components/LoginSignup/AdminLogin";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/login" element={<LoginForm />} />
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/profile" element={<BasicProfile />} />
+          <Route path="/admin/login" element={<AdminLogin />}></Route>
 
           <Route element={<Tab />}>
             <Route path="/my-billboards" element={<MyBillboards />}></Route>
@@ -44,7 +46,7 @@ function App() {
         <Route element={<SideMenu />}>
           <Route path="/admin/" element={<Dashboard />}></Route>
           <Route path="/admin/billboards" element={<Billboards />}></Route>
-          <Route path="/admin/users"element={<Users/>}></Route>
+          <Route path="/admin/users" element={<Users />}></Route>
           <Route path="/admin/orders"></Route>
           <Route path="/admin/pages" element={<Pages />}></Route>
           <Route
