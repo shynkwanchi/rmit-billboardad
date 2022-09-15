@@ -19,7 +19,7 @@ export default function MediaTable(props) {
                 </tr>
                 <tr>
                     <th scope="row">Price</th>
-                    <td>{props.price}</td>
+                    <td>{props.price} VND</td>
                 </tr>
                 <tr>
                     <th scope="row">Description</th>
