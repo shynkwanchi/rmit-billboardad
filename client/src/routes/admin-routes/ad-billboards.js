@@ -32,7 +32,7 @@ const Home = () => {
         setBillboard(data);
         setLoading(true);
       });
-  }, [billboards]);
+  }, []);
   return (
     <main>
       <div className="container">

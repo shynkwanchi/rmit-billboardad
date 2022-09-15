@@ -7,7 +7,6 @@ import MyBillboards from "./routes/user-routes/Profile/my-billboards";
 import GenericPage from "./routes/user-routes/GenericPage/generic-page";
 import Tab from "./components/Tab/tab";
 import MyMessages from "./routes/user-routes/Profile/my-messages";
-import MyAccount from "./routes/user-routes/Profile/my-account";
 import NavBar from "./components/NavBar/NavBar";
 import Billboards from "./routes/admin-routes/ad-billboards";
 import Pages from "./routes/admin-routes/ad-pages";

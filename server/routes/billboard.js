@@ -103,6 +103,7 @@ billboardRouter.post(
   }
 );
 
+// delete a billboard
 billboardRouter.delete("/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -120,6 +121,19 @@ billboardRouter.delete("/:id", async (req, res) => {
       .status(500)
       .json({ errMsg: "Something went wrong! Please try again." });
   }
+});
+
+// fetch info of a bill board
+// Get a billboard based on user's email
+billboardRouter.get("/my-billboards/:id", (req, res) => {
+  const id = req.params.id;
+  billboardSchema.find({ _id: id }, (err, billboards) => {
+    if (err) {
+      console.log(err)
+      res.send(err);
+    }
+    res.send(billboards);
+  });
 });
 
 

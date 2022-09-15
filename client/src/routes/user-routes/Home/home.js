@@ -17,7 +17,7 @@ const Home = () => {
         fetch(`http://localhost:5000/billboards`)
         .then(res => res.json())
         .then(data => {setBillboard(data);setLoading(true);})
-    }, [billboards])
+    }, [])
     return (
         <main>
             <Slider slides={HomeData} />
