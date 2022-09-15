@@ -74,6 +74,10 @@
     font-weight: bold;
 }
 
+.editor-box textarea {
+    min-height: 200px;
+}
+
 .body {
     background: linear-gradient(45deg, #80c0c0,#99cccc,#b3d9d9,#cce6e6);
     background-size: 400% 400%;

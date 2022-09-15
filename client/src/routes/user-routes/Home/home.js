@@ -69,8 +69,10 @@ const Home = () => {
                 </div>
                 
                 {!loading ?
-                <div>
-                    <Spinner animation="grow" /><Spinner animation="grow" /><Spinner animation="grow" />
+                <div className="loadingDiv">
+                    <Spinner className="spinner" animation="grow" />
+                    <Spinner className="spinner" animation="grow" />
+                    <Spinner className="spinner" animation="grow" />
                 </div>
                 : null}
                 
