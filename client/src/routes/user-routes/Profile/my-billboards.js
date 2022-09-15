@@ -32,7 +32,7 @@ const MyBillboards = () => {
 
   return (
     <main>
-      <h2 className="tab-header">My billboards</h2>
+      <h2 className="col col-lg-auto tab-header">My billboards</h2>
       <div className="row filters">
         <div className="col-12 col-sm-3 filter-container">
           Billboard type

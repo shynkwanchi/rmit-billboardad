@@ -1,5 +1,5 @@
 .tab-container {
-    background: #feffff;
+    background: white;
     z-index: 1;
     border-radius: 5px ;
     justify-content: center;
@@ -19,6 +19,8 @@
 .nav{
     padding: 5px;
 }
+
+
 .tab.active,
 .tab:hover {
     font-weight: bold;
@@ -47,3 +49,4 @@
         display: none;
     }
 }
+

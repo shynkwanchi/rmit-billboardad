@@ -30,11 +30,11 @@ const MyMessages = () => {
     <main>
       <table className="col mes-contain">
         <tr className="mes-detail">
-          <th className="col-2 list-mes">From</th>
-          <th className="col-2 list-mes">Phone Number</th>
-          <th className="col-2 list-mes">Messages</th>
-          <th className="col-2 list-mes">At</th>
-          <th className="col-2 list-mes">Read</th>
+          <th className="col-sm-2 list-mes">From</th>
+          <th className="col-sm-2 list-mes">Phone Number</th>
+          <th className="col-sm-2 list-mes">Messages</th>
+          <th className="col-sm-2 list-mes">At</th>
+          <th className="col-sm-2 list-mes">Read</th>
         </tr>
         {messages.map(message =>
             <tr>
