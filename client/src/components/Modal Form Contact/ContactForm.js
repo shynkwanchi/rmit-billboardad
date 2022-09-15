@@ -41,7 +41,7 @@ function ModalContact(props) {
     axios.get('http://localhost:5000/users/')
     .then(res => {setUsers(res.data)})
     {users.map(user=>(user.email == sessionStorage.getItem("userEmail") ? setContactPhone(user.phone) : null))}
-  }, [])
+  }, [users])
 
   return (
     <>
