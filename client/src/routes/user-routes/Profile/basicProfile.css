@@ -44,7 +44,7 @@
 .h1 {
   font-weight: 700;
   font-size: 40px;
-  color: #3aafa9;
+  color: black;
 }
 .btnUpdate {
   margin: 0px 10px;
@@ -77,4 +77,10 @@
   .container {
     width: 400px;
   }
+}
+
+.col-8 {
+  margin-left: 45px;
+  background: white;
+  padding: 10px;
 }

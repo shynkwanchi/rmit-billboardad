@@ -138,7 +138,7 @@ export default function BasicProfile() {
         <div className="col-md-9">
           <h1 className="h1 mb-4">My Account</h1>
           <div className="row">
-            <div className="col-3">
+            <div className="col-4">
               <div className="img-border">
                 {userData.profileImg ? (
                   <img
@@ -163,9 +163,9 @@ export default function BasicProfile() {
                 </form>
               </div>
             </div>
-            <div className="col-9">
+            <div className="col-8">
               <div className="input-name row text">
-                <div className="col-lg-4 col">
+                <div className="col-lg-4 col text-dark">
                   Username
                   <br />
                   <div className="displayError">{displayError.username}</div>
@@ -178,7 +178,7 @@ export default function BasicProfile() {
                 />
               </div>
               <div className="input-name row text">
-                <div className="col-lg-4 col">
+                <div className="col-lg-4 col text-dark">
                   Name
                   <div className="displayError">{displayError.name}</div>
                 </div>

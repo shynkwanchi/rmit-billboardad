@@ -6,7 +6,7 @@ import "./card.css";
 const Card = props => {
 
     return (
-      <div className="col-12 col-sm-6 col-md-4 bg-light item-container ">
+      <div className="col-12 col-sm-6 col-md-3 bg-light item-container ">
         <Link to={`/details/${props.id}`}>
           <div className="image-container">
             {props.billboardImg ? (
