@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Modal } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import { getResponse } from "../../middleware/response";
 import axios from "axios";
+import './index.css';
 
 function ModalContact() {
   const [owner] = useState(sessionStorage.getItem("userEmail"));
@@ -78,7 +79,7 @@ function ModalContact() {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button className="btn-cus" variant="primary" onClick={handleShow}>
         Add New
       </Button>
 
