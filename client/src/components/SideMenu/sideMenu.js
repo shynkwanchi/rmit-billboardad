@@ -2,6 +2,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import "./sideMenu.css"
 
 const SideMenu = () => {
+    const handleLogout = () => {
+      sessionStorage.removeItem("admin");
+      window.location.reload();
+    };
+
     const toggleMenu = () => {
         let toggle = document.querySelector('.toggle');
         let sideNav = document.querySelector('.side-nav');
@@ -49,14 +54,9 @@ const SideMenu = () => {
                             <span className="title">Pages</span>
                         </NavLink>
                     </li>
-                    <li className="side-nav-link">
-                        <NavLink to="/admin/settings">
-                            <span className="side-nav-icon"><em className="fas fa-cog"></em></span>
-                            <span className="title">Settings</span>
-                        </NavLink>
-                    </li>
+    
                     <li className="side-nav-link" id="sign-out-link">
-                        <NavLink to="/admin/sign-in">
+                        <NavLink to="/admin/login" onClick={handleLogout}>
                             <span className="side-nav-icon"><em className="fas fa-sign-out"></em></span>
                             <span className="title">Sign out</span>
                         </NavLink>
