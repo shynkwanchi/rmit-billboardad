@@ -17,6 +17,7 @@ import "./details.css";
 import ProfileCard from "../../../components/Profile Card/Card";
 import Features from "../../../components/Profile Card/MediaTable";
 import EditBillboardModal from "../../../components/Edit Billboard Modal";
+import Spinner from 'react-bootstrap/Spinner';
 import { useParams } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 
@@ -73,6 +74,14 @@ if (billboards) {
         </div>
       </main>
     );
+}else{
+  return(
+    <div className="loadingDiv">
+      <Spinner className="spinner" animation="grow" />
+      <Spinner className="spinner" animation="grow" />
+      <Spinner className="spinner" animation="grow" />
+  </div>
+  )
 }
 
 }
