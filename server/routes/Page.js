@@ -7,26 +7,15 @@ const sectionSchema = require("../models/Section");
 pageRouter.post('/', async (req, res) => {
     try {
         const pageName = req.body.pageName;
-        const path = req.body.path;
         const description = req.body.description;
 
-        if (!pageName || !path)
+        if (!pageName)
             return res.status(400).json({ errMsg: "Please enter all required fields!" });
-
-        // Check if path has a correct format
-        if (!path.trim().match("^[a-zA-z0-9_-]+$"))
-            return res.status(400).json({ errMsg: "Path contains only numbers, letters, underscores or hyphen!" });
-
-        // Check if the path already exist
-        let foundPage = await pageSchema.findOne({ path: path.trim() });
-        if (foundPage)
-            return res.status(400).json({ errMsg: "Path already exists!" });
 
         let updateDate = new Date().toLocaleString("en-us", { year: "numeric", month: "short", day: "numeric" });
 
         const newPage = new pageSchema({
             pageName: pageName.trim(),
-            path: path.trim(),
             description: description.trim(),
             dateCreated: updateDate,
             lastUpdated: updateDate,
@@ -68,23 +57,13 @@ pageRouter.put('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const pageName = req.body.pageName;
-        const path = req.body.path;
         const description = req.body.description;
 
-        if (!pageName || !path)
+        if (!pageName)
             return res.status(400).json({ errMsg: "Please enter all required fields!" });
 
-        // Check if path has a correct format
-        if (!path.trim().match("^[a-zA-z0-9_-]+$"))
-            return res.status(400).json({ errMsg: "Path contains only numbers, letters, underscores or hyphen!" });
-
-        // Check if the path already exist
-        let foundPage = await pageSchema.findOne({ _id: { $nin: id }, path: path.trim() });
-        if (foundPage)
-            return res.status(400).json({ errMsg: "Path already exists!" });
-
         // Check if all the input data are the same as the current data
-        foundPage = await pageSchema.findOne({ _id: id, pageName: pageName.trim(), path: path.trim(), description: description.trim() });
+        foundPage = await pageSchema.findOne({ _id: id, pageName: pageName.trim(), description: description.trim() });
         if (foundPage)
             return res.status(202).json({ acceptMsg: "Page is up to date!" });
 
@@ -93,7 +72,6 @@ pageRouter.put('/:id', async (req, res) => {
             {
                 $set: {
                     pageName: pageName.trim(),
-                    path: path.trim(),
                     description: description.trim(),
                     lastUpdated: new Date().toLocaleString("en-us", { year: "numeric", month: "short", day: "numeric" }),
                 }

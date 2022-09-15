@@ -11,7 +11,7 @@ function Footer() {
       <nav className='nav-link'>
         {
           pages.map(page =>
-           <Link to={`/article/${page.path}`}>{page.pageName}</Link> 
+           <Link to={`/article/${page._id}`}>{page.pageName}</Link> 
           )
         }
       </nav>

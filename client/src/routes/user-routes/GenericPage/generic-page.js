@@ -1,19 +1,23 @@
-import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import Collapse from "../../../components/Collapse/collapse";
-import { LoadPages, LoadSections } from "../../../middleware/load-data";
+import { LoadSections } from "../../../middleware/load-data";
 import "./generic-page.css";
 
 const GenericPage = () => {
     // Load the page
-    const {pathname} = useLocation();
+    const [page, setPage] = useState({});
+    const { _id } = useParams();
 
-    const page = LoadPages().filter(page => 
-        page.path === pathname.substring(9)
-    );
+    useEffect(() => {
+        fetch(`http://localhost:5000/pages/${_id}`)
+            .then(res => res.json())
+            .then(data => setPage(data))
+    }, [_id]);
 
-    // console.log(page);
+    console.log(page);
 
-    const sections = LoadSections(page._id);
+    const sections = LoadSections(_id);
 
     return (
         <div className="container">
@@ -35,8 +39,7 @@ const GenericPage = () => {
 
             <hr />
 
-            <p className="content">If you have any problems when using our website, please contact us <a id="contact-us-link" href="#">HERE</a>.</p>
-            <p className="update-txt">Last updated on {page.lastUpdadted}.</p>
+            <p className="update-txt">Last updated on {page.lastUpdated}.</p>
         </div>
     );
 }

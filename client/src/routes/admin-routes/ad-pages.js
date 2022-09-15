@@ -7,7 +7,6 @@ import "./admin-panel.css";
 const Pages = () => {
     
     const [pageName, setPageName] = useState('');
-    const [path, setPath] = useState('');
     const [description, setDescription] = useState('');
     const pages = LoadPages();
     const navigate = useNavigate();
@@ -32,7 +31,7 @@ const Pages = () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ pageName: pageName, path: path, description: description })
+                body: JSON.stringify({ pageName: pageName, description: description })
             })
                 .then(res => getResponse(res))
         }
@@ -82,10 +81,6 @@ const Pages = () => {
                                     <input type="text" className="form-control" id="page-name" placeholder="Your Page" onChange={(e) => { setPageName(e.target.value) }} />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="path" className="form-label">Path <span className="required-field-icon">*</span></label>
-                                    <input type="text" className="form-control" id="path" placeholder="your-page" onChange={(e) => { setPath(e.target.value) }} />
-                                </div>
-                                <div className="mb-3">
                                     <label htmlFor="description-text" className="form-label">Description</label>
                                     <textarea className="form-control" id="description-text" placeholder="Enter the description of your page" onChange={(e) => { setDescription(e.target.value) }}></textarea>
                                 </div>
@@ -105,7 +100,6 @@ const Pages = () => {
                     <thead>
                         <tr>
                             <th>Page name</th>
-                            <th>Path</th>
                             <th>Created date</th>
                             <th>Last updated</th>
                             <th>Options</th>
@@ -116,7 +110,6 @@ const Pages = () => {
                             pages.map(page =>
                                 <tr>
                                     <td>{page.pageName}</td>
-                                    <td>{page.path}</td>
                                     <td>{page.dateCreated}</td>
                                     <td>{page.lastUpdated}</td>
                                     <td>

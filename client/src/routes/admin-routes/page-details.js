@@ -22,7 +22,6 @@ const PageDetails = () => {
     const [page, setPage] = useState(
         {
             pageName: '',
-            path: '',
             description: '',
         }
     );
@@ -111,10 +110,6 @@ const PageDetails = () => {
                     <div className="mb-3">
                         <label htmlFor="page-name" className="form-label">Page name <span className="required-field-icon">*</span></label>
                         <input type="text" className="form-control" id="page-name" placeholder="Your Page" name="pageName" value={page.pageName} onChange={handleInput} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor="path" className="form-label">Path <span className="required-field-icon">*</span></label>
-                        <input type="text" className="form-control" id="path" placeholder="your-page" name="path" value={page.path} onChange={handleInput} />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="description-text" className="form-label">Description</label>
