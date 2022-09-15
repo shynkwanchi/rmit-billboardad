@@ -103,4 +103,24 @@ billboardRouter.post(
   }
 );
 
+billboardRouter.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+
+    let foundBillboard = await billboardSchema.findById(id);
+    if (!foundBillboard)
+      return res.status(404).json({ errMsg: "User not found!" });
+
+    // After that the page is also deleted
+    await billboardSchema.deleteOne({ _id: id });
+    return res.status(200).json({ successMsg: "User successfully deleted!" });
+  } catch (err) {
+    console.error(err);
+    return res
+      .status(500)
+      .json({ errMsg: "Something went wrong! Please try again." });
+  }
+});
+
+
 module.exports = billboardRouter;
