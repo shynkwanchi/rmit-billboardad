@@ -44,21 +44,30 @@ function Details() {
 
 if (billboards) {
     return (
-    <main>
-      <Slider slides={HomeData} />
-      <div className="container">
-        <div className="row">
-          <div className="col-auto">
-            {billboards && <ProfileCard title={billboards[0].title} billboardImg={billboards[0].billboardImg} description={billboards[0].description} area={billboards[0].area} price={billboards[0].price}/>} 
-          </div>
+      <main>
+        <Slider slides={HomeData} />
+        <div className="container">
+          <div className="row">
+            <div className="col-auto">
+              {billboards && (
+                <ProfileCard
+                  title={billboards[0].title}
+                  billboardImg={billboards[0].billboardImg}
+                />
+              )}
+            </div>
 
-          <div className="col p-3">
-            <Features />
+            <div className="col p-3">
+              <Features
+                description={billboards[0].description}
+                area={billboards[0].area}
+                price={billboards[0].price}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-  );
+      </main>
+    );
 }
 
 }
