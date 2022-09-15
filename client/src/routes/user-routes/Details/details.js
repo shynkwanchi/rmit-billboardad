@@ -29,7 +29,6 @@ function Details() {
     await fetch(`http://localhost:5000/billboards/specific/${_id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setBillboard(data);
       }); 
   };
@@ -39,13 +38,17 @@ function Details() {
   }, []);
 
 
+{
+  billboards && console.log(billboards)
+} 
+
   return (
     <main>
       <Slider slides={HomeData} />
       <div className="container">
         <div className="row">
           <div className="col-auto">
-            {billboards && <ProfileCard title={billboards.title} billboardImg={billboards.billboardImg}/>} 
+            {billboards && <ProfileCard title={billboards[0].title} billboardImg={billboards[0].billboardImg}/>} 
           </div>
 
           <div className="col p-3">
