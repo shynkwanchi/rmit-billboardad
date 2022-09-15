@@ -139,7 +139,7 @@ export default function BasicProfile() {
           <div className="col-md-9">
             <h1 className="h1 row-2 mb-4">My Account</h1>
             <div className="row">
-              <div className="col-4 col-md-3">
+              <div className="col-4 col-md-3 ohhh">
                 <div className="img-border">
                   {userData.profileImg ? (
                     <img

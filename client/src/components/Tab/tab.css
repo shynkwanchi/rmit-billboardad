@@ -1,6 +1,8 @@
 .tab-container {
     background: #feffff;
     z-index: 1;
+    border-radius: 5px ;
+    justify-content: center;
 }
 
 .tab {
@@ -9,12 +11,19 @@
     color: #000;
     transition: all 0.5s ease;
     text-align: left !important;
+    margin: auto;
+    border-radius: 5px ;
+    border: #000 0.5px;
 }
 
+.nav{
+    padding: 5px;
+}
 .tab.active,
 .tab:hover {
     font-weight: bold;
     color: #3aafa9;
+    background: rgb(0, 0, 0);
 }
 
 .tab.active {

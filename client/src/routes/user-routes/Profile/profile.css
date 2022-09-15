@@ -11,3 +11,21 @@
     width: 100%;
     font-size: 20px;
 }
+
+.list-mes {
+    align-items: center;
+    margin: auto;
+}
+
+.mes-contain {
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.mes-detail.th {
+    margin-left: 10px;
+    padding: 10px;
+}
