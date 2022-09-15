@@ -17,8 +17,8 @@ const MessageSchema = new mongoose.Schema({
         required: true
     },
     dateCreated: {
-        type: String,
-        default: Date.now().toLocaleString("en-us", {year:"numeric", month:"short", day:"numeric"}),
+        type: Date,
+        default: Date.now,
     },
 });
 
