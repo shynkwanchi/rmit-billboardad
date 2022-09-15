@@ -48,7 +48,6 @@ function App() {
           <Route path="/admin/" element={<Dashboard />}></Route>
           <Route path="/admin/billboards" element={<Billboards />}></Route>
           <Route path="/admin/users" element={<Users />}></Route>
-          <Route path="/admin/orders"></Route>
           <Route path="/admin/pages" element={<Pages />}></Route>
           <Route
             path="/admin/page-details/:_id"

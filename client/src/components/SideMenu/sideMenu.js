@@ -43,12 +43,6 @@ const SideMenu = () => {
                         </NavLink>
                     </li>
                     <li className="side-nav-link">
-                        <NavLink to="/admin/orders">
-                            <span className="side-nav-icon"><em className="fas fa-shopping-cart"></em></span>
-                            <span className="title">Orders</span>
-                        </NavLink>
-                    </li>
-                    <li className="side-nav-link">
                         <NavLink to="/admin/pages">
                             <span className="side-nav-icon"><em className="fas fa-file"></em></span>
                             <span className="title">Pages</span>
