@@ -79,8 +79,55 @@
   }
 }
 
-.col-8 {
-  margin-left: 45px;
-  background: white;
+.col-8{
+  background: rgb(223, 218, 218);
+  align-items: center;
+  margin: auto;
+  margin-top: 0;
+  border-radius: 5px;
+  border: 1px solid rgb(204, 198, 198);
+}
+
+.col-4 {
+  background:rgb(230, 225, 225);
+  border: 1px solid rgb(223, 218, 218);
+  padding: 5px;
+}
+
+.form.input {
   padding: 10px;
 }
+
+.col-4.input.text {
+  border-radius: 5px;
+}
+
+input#file-input,input#upd-file {
+  display: none;
+}
+
+input#file-input+ label,input#upd-file + label {
+  background-color: #3aafa9;
+  padding: 8px;
+  color: #ffffff;
+  border: 2px solid #43e5dd;
+  border-radius: 9px;
+  margin: 5px;
+  align-items: center;
+}
+
+input#file-input+label:hover,input#upd-file+label:hover {
+  background-color: #01ddd2;
+  border-color: rgb(40, 230, 195);
+  cursor: pointer;
+}
+
+form {
+  align-items: center;
+  padding: auto;
+}
+
+.img-thumbnail{
+  align-items: center;
+}
+

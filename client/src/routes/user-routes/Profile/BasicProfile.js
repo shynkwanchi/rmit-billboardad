@@ -136,9 +136,9 @@ export default function BasicProfile() {
     <div className="container main-body">
       <div className="row">
         <div className="col-md-9">
-          <h1 className="h1 mb-4">My Account</h1>
+          <h1 className="h1 row-2 mb-4">My Account</h1>
           <div className="row">
-            <div className="col-4">
+            <div className="col-4 col-md-3">
               <div className="img-border">
                 {userData.profileImg ? (
                   <img
@@ -149,9 +149,10 @@ export default function BasicProfile() {
                   <img className="img-thumbnail" src={avatar} />
                 )}
               </div>
-              <div>
+              <div className="btn-img">
                 <form onSubmit={onFormSubmit}>
                   <input
+                    id="file-input"
                     className="my-1"
                     type="file"
                     name="profileImg"
@@ -159,7 +160,9 @@ export default function BasicProfile() {
                     onChange={onInputChange}
                     required
                   />
-                  <input type="submit" value="Update Image" />
+                  <label for="file-input">Choose a file...</label>
+                  <input type="submit" value="Update Image" id="upd-file" />
+                  <label for="upd-file">Update here...</label>
                 </form>
               </div>
             </div>
@@ -196,7 +199,7 @@ export default function BasicProfile() {
 
           <div className="">
             <div className="row">
-              <div className="col-4 input text">
+              <div className="col-4 text-dark input text">
                 Gender
                 <br />
                 <div className="displayError">{displayError.gender}</div>
@@ -235,7 +238,7 @@ export default function BasicProfile() {
             </div>
 
             <div className="row">
-              <div className="col-4 input text">
+              <div className="col-4 text-dark input text">
                 Phone number
                 <br />
                 <div className="displayError">{displayError.phone}</div>
@@ -250,7 +253,7 @@ export default function BasicProfile() {
             </div>
 
             <div className="row">
-              <div className="col-4 input text">
+              <div className="col-4 text-dark input text">
                 Email <br />
                 <div className="displayError">{displayError.email}</div>
               </div>
