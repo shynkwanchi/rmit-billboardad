@@ -8,9 +8,10 @@ const GenericPage = () => {
     const {pathname} = useLocation();
 
     const page = LoadPages().filter(page => 
-        page.path === pathname.substring(1)
+        page.path === pathname.substring(9)
     );
-    console.log(page);
+
+    // console.log(page);
 
     const sections = LoadSections(page._id);
 

@@ -5,7 +5,6 @@ import '../Footer/style.css'
 
 function Footer() {
   const pages = LoadPages();
-  console.log(pages);
 
   return (
     <div className='footer-container'>
