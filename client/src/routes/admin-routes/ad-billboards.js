@@ -35,7 +35,8 @@ const Home = () => {
   }, []);
   return (
     <main>
-      <div className="container">
+      <>
+        <h1>Billboards</h1>
         <div className="row filters">
           <div className="col-6 col-sm-4 col-md-4 filter-container">
             Billboard type
@@ -206,7 +207,7 @@ const Home = () => {
               ></CardAd>
             ))}
         </div>
-      </div>
+      </>
     </main>
   );
 };
