@@ -49,7 +49,7 @@ if (billboards) {
       <div className="container">
         <div className="row">
           <div className="col-auto">
-            {billboards && <ProfileCard title={billboards[0].title} billboardImg={billboards[0].billboardImg}/>} 
+            {billboards && <ProfileCard title={billboards[0].title} billboardImg={billboards[0].billboardImg} description={billboards[0].description} area={billboards[0].area} price={billboards[0].price}/>} 
           </div>
 
           <div className="col p-3">

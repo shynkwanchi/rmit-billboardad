@@ -20,6 +20,7 @@ const ProfileCard = (props) => {
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
         {/* <Card.Text>{card.text}</Card.Text> */}
+        {props.description}
         <ModalContact />
       </Card.Body>
     </Card>

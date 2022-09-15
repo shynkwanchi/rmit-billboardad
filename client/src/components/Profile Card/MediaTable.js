@@ -1,9 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './MediaTable.css';
 
-export default function MediaTable() {
-
-
+export default function MediaTable(props) {
     return (
         <table className='table table-hover'>
             <tbody>
@@ -14,6 +12,14 @@ export default function MediaTable() {
                 <tr>
                     <th scope="row">Weight</th>
                     <td>110kg</td>
+                </tr>
+                <tr>
+                    <th scope="row">Area</th>
+                    <td>{props.area}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Price</th>
+                    <td>{props.price}</td>
                 </tr>
             </tbody>
         </table>
