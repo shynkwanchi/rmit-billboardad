@@ -14,10 +14,8 @@
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./details.css";
-import Slider from "../../../components/Slider/slider";
 import ProfileCard from "../../../components/Profile Card/Card";
 import Features from "../../../components/Profile Card/MediaTable";
-import HomeData from "../../../data/HomeData";
 import { useParams } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 
@@ -47,7 +45,6 @@ function Details() {
 if (billboards) {
     return (
       <main>
-        <Slider slides={HomeData} />
         <div className="container">
           <div className="row">
             <div className="col-auto">

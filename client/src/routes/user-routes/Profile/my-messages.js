@@ -27,7 +27,7 @@ const MyMessages = () => {
   }, [])
 
   return (
-    <>
+    <main>
       <table>
         <tr>
           <th>From</th>
@@ -44,7 +44,7 @@ const MyMessages = () => {
             </tr>
         )}
       </table>
-    </>
+    </main>
   );
 };
 

@@ -35,49 +35,51 @@ function LoginForm() {
   };
 
   return (
-    <div className={LogStyle.box}>
-      <div className={LogStyle.form}>
-        <form className="login" onSubmit={handleSubmit}>
-          <h1 className={LogStyle.title}>Login</h1>
-          {error && <div className={LogStyle.error}>{error}</div>}
-          <div className={LogStyle.input}>
-            <label htmlFor="email">Email</label>
-            <div>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={data.email}
-                onChange={handleChange}
-              />
+    <main>
+      <div className={LogStyle.box}>
+        <div className={LogStyle.form}>
+          <form className="login" onSubmit={handleSubmit}>
+            <h1 className={LogStyle.title}>Login</h1>
+            {error && <div className={LogStyle.error}>{error}</div>}
+            <div className={LogStyle.input}>
+              <label htmlFor="email">Email</label>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={data.email}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <div className={LogStyle.input}>
-            <label htmlFor="password">Password</label>
-            <div>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={data.password}
-                onChange={handleChange}
-              />
+            <div className={LogStyle.input}>
+              <label htmlFor="password">Password</label>
+              <div>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={data.password}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-          </div>
-          <button
-            className={LogStyle.btn}
-            type="submit"
-            name="login"
-            value="Login"
-          >
-            Login
-          </button>
-          <div className={LogStyle.switch}>
-            Don't have an account? <Link to="/signup">Signup</Link>
-          </div>
-        </form>
+            <button
+              className={LogStyle.btn}
+              type="submit"
+              name="login"
+              value="Login"
+            >
+              Login
+            </button>
+            <div className={LogStyle.switch}>
+              Don't have an account? <Link to="/signup">Signup</Link>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 

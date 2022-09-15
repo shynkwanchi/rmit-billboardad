@@ -94,97 +94,99 @@ function SignupForm() {
   };
 
   return (
-    <div className={LogStyle.box}>
-      <div className={LogStyle.form}>
-        <form className="signup">
-          <h1 className={LogStyle.title}>Registration</h1>
-          <div className={LogStyle.input}>
-            <label htmlFor="email">Email</label>
-            <div>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                value={data.email}
-                onChange={handleChange}
-              />
+    <main>
+      <div className={LogStyle.box}>
+        <div className={LogStyle.form}>
+          <form className="signup">
+            <h1 className={LogStyle.title}>Registration</h1>
+            <div className={LogStyle.input}>
+              <label htmlFor="email">Email</label>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  value={data.email}
+                  onChange={handleChange}
+                />
+              </div>
+              {!displayError.email ? (
+                <div className={LogStyle.error}>{serverError}</div>
+              ) : (
+                <div className={LogStyle.error}>{displayError.email}</div>
+              )}
             </div>
-            {!displayError.email ? (
-              <div className={LogStyle.error}>{serverError}</div>
-            ) : (
-              <div className={LogStyle.error}>{displayError.email}</div>
-            )}
-          </div>
 
-          <div className={LogStyle.input}>
-            <label htmlFor="password">Name</label>
-            <div>
-              <input
-                type="string"
-                name="name"
-                id="name"
-                value={data.name}
-                onChange={handleChange}
-              />
+            <div className={LogStyle.input}>
+              <label htmlFor="password">Name</label>
+              <div>
+                <input
+                  type="string"
+                  name="name"
+                  id="name"
+                  value={data.name}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={LogStyle.error}>{displayError.name}</div>
             </div>
-            <div className={LogStyle.error}>{displayError.name}</div>
-          </div>
 
-          <div className={LogStyle.input}>
-            <label htmlFor="password">Password</label>
-            <div>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                value={data.password}
-                onChange={handleChange}
-              />
+            <div className={LogStyle.input}>
+              <label htmlFor="password">Password</label>
+              <div>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value={data.password}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={LogStyle.error}>{displayError.password}</div>
             </div>
-            <div className={LogStyle.error}>{displayError.password}</div>
-          </div>
-          <div className={LogStyle.input}>
-            <label htmlFor="password">Retype Password</label>
-            <div>
-              <input
-                type="password"
-                name="retypepass"
-                id="retypepass"
-                value={data.retypepass}
-                onChange={handleChange}
-              />
+            <div className={LogStyle.input}>
+              <label htmlFor="password">Retype Password</label>
+              <div>
+                <input
+                  type="password"
+                  name="retypepass"
+                  id="retypepass"
+                  value={data.retypepass}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={LogStyle.error}>{displayError.retypepass}</div>
             </div>
-            <div className={LogStyle.error}>{displayError.retypepass}</div>
-          </div>
-          <div className={LogStyle.input}>
-            <label htmlFor="password">Phone Number</label>
-            <div>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                value={data.phone}
-                onChange={handleChange}
-              />
+            <div className={LogStyle.input}>
+              <label htmlFor="password">Phone Number</label>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  value={data.phone}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className={LogStyle.error}>{displayError.phone}</div>
             </div>
-            <div className={LogStyle.error}>{displayError.phone}</div>
-          </div>
-          <button
-            className={LogStyle.btn}
-            type="submit"
-            name="login"
-            value="Login"
-            onClick={handleSubmit}
-            on
-          >
-            Sign Up
-          </button>
-          <div className={LogStyle.switch}>
-            Have an account? <Link to="/login">Login</Link>
-          </div>
-        </form>
+            <button
+              className={LogStyle.btn}
+              type="submit"
+              name="login"
+              value="Login"
+              onClick={handleSubmit}
+              on
+            >
+              Sign Up
+            </button>
+            <div className={LogStyle.switch}>
+              Have an account? <Link to="/login">Login</Link>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }
 

@@ -31,7 +31,7 @@ const MyBillboards = () => {
   userToken();
 
   return (
-    <>
+    <main>
       <h2 className="tab-header">My billboards</h2>
       <div className="row filters">
         <div className="col-6 col-sm-3 filter-container">
@@ -73,7 +73,7 @@ const MyBillboards = () => {
         }).map(filteredItem => <Card id={filteredItem?._id} title={filteredItem?.title} description={filteredItem?.description} price={filteredItem?.price} billboardImg={filteredItem.billboardImg}></Card>)}
         
       </div>
-    </>
+    </main>
   );
 };
 

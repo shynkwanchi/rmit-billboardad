@@ -10,7 +10,7 @@ const CardAd = (props) => {
     try {
       if (
         !window.confirm(
-          "Deleting the billboard will also deletes all of its contents.\nAre you sure you want to proceed?"
+          "Are you sure you want to delete this billboard?"
         )
       ) {
         return;

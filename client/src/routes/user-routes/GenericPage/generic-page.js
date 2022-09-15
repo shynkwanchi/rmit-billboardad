@@ -20,27 +20,29 @@ const GenericPage = () => {
     const sections = LoadSections(_id);
 
     return (
-        <div className="container">
-            <h2 className="page-name">{page.pageName}</h2>
-            <p className="content">{page.description}</p>
+        <main>
+            <div className="container">
+                <h2 className="page-name">{page.pageName}</h2>
+                <p className="content">{page.description}</p>
 
-            <hr />
+                <hr />
 
-            {/* Page content here */}
-            <div className="panel-group">
-                {
-                    sections.map(section =>
-                        <>
-                            <Collapse sectionID={section._id} sectionName={section.sectionName} sectionContent={section.sectionContent} />
-                        </>
-                    )
-                }
+                {/* Page content here */}
+                <div className="panel-group">
+                    {
+                        sections.map(section =>
+                            <>
+                                <Collapse sectionID={section._id} sectionName={section.sectionName} sectionContent={section.sectionContent} />
+                            </>
+                        )
+                    }
+                </div>
+
+                <hr />
+
+                <p className="update-txt">Last updated on {page.lastUpdated}.</p>
             </div>
-
-            <hr />
-
-            <p className="update-txt">Last updated on {page.lastUpdated}.</p>
-        </div>
+        </main>
     );
 }
 

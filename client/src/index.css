@@ -28,6 +28,10 @@ html a {
   color: #000;
 }
 
+html main {
+  min-height: calc(100vh - 70px);
+}
+
 .container {
   margin: 30px auto;
 }

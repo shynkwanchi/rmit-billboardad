@@ -2,9 +2,10 @@
     background-color: #1A1A1D;
     text-align: center;
     color: white;
-    left: 0px;
-    bottom: 0px;
+    left: 0;
+    bottom: 0;
     z-index: 1;
+    padding: 10px 0;
 }
 .nav-link {
     margin: 10px;
@@ -12,12 +13,4 @@
 .nav-link a{
     margin: 20px;
     color: white;
-}
-.nav-socialmedia {
-    padding-top: 10px;
-}
-.nav-socialmedia a {
-    color: white;
-    margin: 20px;
-    font-size: larger;
 }

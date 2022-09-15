@@ -122,161 +122,163 @@ export default function BasicProfile() {
       headers: {
         "content-type": "multipart/form-data",
       },
-    }; 
+    };
 
     await axios
       .post("http://localhost:5000/api/uploadProfileImg", formData, config)
       .then((res) => {
         userToken();
         alert("Image Upload Successfully!");
-      }).catch((err)=> {console.log(err)});
+      }).catch((err) => { console.log(err) });
   };
 
   return (
-    <div className="container main-body">
-      <div className="row">
-        <div className="col-md-9">
-          <h1 className="h1 row-2 mb-4">My Account</h1>
-          <div className="row">
-            <div className="col-4 col-md-3">
-              <div className="img-border">
-                {userData.profileImg ? (
-                  <img
-                    className="img-thumbnail"
-                    src={`data: ${userData.profileImg.contentType};base64, ${userData.profileImg.image}`}
-                  />
-                ) : (
-                  <img className="img-thumbnail" src={avatar} />
-                )}
+    <main>
+      <div className="container main-body">
+        <div className="row">
+          <div className="col-md-9">
+            <h1 className="h1 row-2 mb-4">My Account</h1>
+            <div className="row">
+              <div className="col-4 col-md-3">
+                <div className="img-border">
+                  {userData.profileImg ? (
+                    <img
+                      className="img-thumbnail"
+                      src={`data: ${userData.profileImg.contentType};base64, ${userData.profileImg.image}`}
+                    />
+                  ) : (
+                    <img className="img-thumbnail" src={avatar} />
+                  )}
+                </div>
+                <div className="btn-img">
+                  <form onSubmit={onFormSubmit}>
+                    <input
+                      id="file-input"
+                      className="my-1"
+                      type="file"
+                      name="profileImg"
+                      accept="image/*"
+                      onChange={onInputChange}
+                      required
+                    />
+                    <label for="file-input">Choose a file...</label>
+                    <input type="submit" value="Update Image" id="upd-file" />
+                    <label for="upd-file">Update here...</label>
+                  </form>
+                </div>
               </div>
-              <div className="btn-img">
-                <form onSubmit={onFormSubmit}>
+              <div className="col-8">
+                <div className="input-name row text">
+                  <div className="col-lg-4 col text-dark">
+                    Username
+                    <br />
+                    <div className="displayError">{displayError.username}</div>
+                  </div>
                   <input
-                    id="file-input"
-                    className="my-1"
-                    type="file"
-                    name="profileImg"
-                    accept="image/*"
-                    onChange={onInputChange}
-                    required
+                    className="col-lg-8 col"
+                    name="username"
+                    value={userData.username}
+                    onChange={handleChange}
                   />
-                  <label for="file-input">Choose a file...</label>
-                  <input type="submit" value="Update Image" id="upd-file" />
-                  <label for="upd-file">Update here...</label>
-                </form>
+                </div>
+                <div className="input-name row text">
+                  <div className="col-lg-4 col text-dark">
+                    Name
+                    <div className="displayError">{displayError.name}</div>
+                  </div>
+                  <input
+                    className="col-lg-8 col"
+                    name="name"
+                    value={userData.name}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
-            <div className="col-8">
-              <div className="input-name row text">
-                <div className="col-lg-4 col text-dark">
-                  Username
+            <br />
+            <br />
+
+            <div className="">
+              <div className="row">
+                <div className="col-4 text-dark input text">
+                  Gender
                   <br />
-                  <div className="displayError">{displayError.username}</div>
+                  <div className="displayError">{displayError.gender}</div>
                 </div>
-                <input
-                  className="col-lg-8 col"
-                  name="username"
-                  value={userData.username}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="input-name row text">
-                <div className="col-lg-4 col text-dark">
-                  Name
-                  <div className="displayError">{displayError.name}</div>
+                <div className="col input">
+                  <input
+                    type="radio"
+                    name="gender"
+                    id="Male"
+                    value="male"
+                    checked={userData.gender === "male"}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="Male">Male</label>
+                  <input
+                    type="radio"
+                    className="radio"
+                    name="gender"
+                    id="Female"
+                    value="female"
+                    checked={userData.gender === "female"}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="Female">Female</label>
+                  <input
+                    type="radio"
+                    className="radio"
+                    name="gender"
+                    id="Other"
+                    value="other"
+                    checked={userData.gender === "other"}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="Other">Other</label>
                 </div>
-                <input
-                  className="col-lg-8 col"
-                  name="name"
-                  value={userData.name}
-                  onChange={handleChange}
-                />
               </div>
-            </div>
-          </div>
-          <br />
-          <br />
 
-          <div className="">
-            <div className="row">
-              <div className="col-4 text-dark input text">
-                Gender
-                <br />
-                <div className="displayError">{displayError.gender}</div>
+              <div className="row">
+                <div className="col-4 text-dark input text">
+                  Phone number
+                  <br />
+                  <div className="displayError">{displayError.phone}</div>
+                </div>
+                <div className="col input">
+                  <input
+                    name="phone"
+                    value={userData.phone}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-              <div className="col input">
-                <input
-                  type="radio"
-                  name="gender"
-                  id="Male"
-                  value="male"
-                  checked={userData.gender === "male"}
-                  onChange={handleChange}
-                />
-                <label htmlFor="Male">Male</label>
-                <input
-                  type="radio"
-                  className="radio"
-                  name="gender"
-                  id="Female"
-                  value="female"
-                  checked={userData.gender === "female"}
-                  onChange={handleChange}
-                />
-                <label htmlFor="Female">Female</label>
-                <input
-                  type="radio"
-                  className="radio"
-                  name="gender"
-                  id="Other"
-                  value="other"
-                  checked={userData.gender === "other"}
-                  onChange={handleChange}
-                />
-                <label htmlFor="Other">Other</label>
+
+              <div className="row">
+                <div className="col-4 text-dark input text">
+                  Email <br />
+                  <div className="displayError">{displayError.email}</div>
+                </div>
+                <div className="col input">
+                  <input
+                    name="email"
+                    value={userData.email}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
             </div>
 
-            <div className="row">
-              <div className="col-4 text-dark input text">
-                Phone number
-                <br />
-                <div className="displayError">{displayError.phone}</div>
-              </div>
-              <div className="col input">
-                <input
-                  name="phone"
-                  value={userData.phone}
-                  onChange={handleChange}
-                />
-              </div>
+            <div className="update-btn">
+              <button className="btnReset " onClick={resetData}>
+                Reset
+              </button>
+              <button className="btnUpdate " onClick={updateData}>
+                Update
+              </button>
             </div>
-
-            <div className="row">
-              <div className="col-4 text-dark input text">
-                Email <br />
-                <div className="displayError">{displayError.email}</div>
-              </div>
-              <div className="col input">
-                <input
-                  name="email"
-                  value={userData.email}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-          </div>
-
-          <div className="update-btn">
-            <button className="btnReset " onClick={resetData}>
-              Reset
-            </button>
-            <button className="btnUpdate " onClick={updateData}>
-              Update
-            </button>
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
