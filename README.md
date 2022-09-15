@@ -28,19 +28,26 @@ Last updated: To be added.
 
 ## Project Details
 ### 1) Description
-To be added
+BillBoarDad is a web application that allows users to manage the billboards as well as contact with owners to rent billboards.
 ### 2) Technology used
 + Front-end: ReactJS, Bootstrap
 + Back-end: Node.js, ExpressJS
 + Database: MongoDB
-+ Hosting: To be added
-### 3) Functional requirements
-+ To be added
-### 4) Non-functional requirements
-+ To be added
-### 5) Links
++ Hosting: Netlify
+### 3) Functionalities
++ As a user:
+    + Register
+    + Login
+    + Update profile
+    + Create and update billboards
+    + View and filter billboards and their details
+    + Contact with billboard owner to rent the desired billboards
++ As an administrator:
+    + Manage users and billboards (View and delete only)
+    + Full CRUD operations for managing generic page content (e.g. Terms of Service, Privacy Policy, etc.)
+### 4) Links
 + Github repository: https://github.com/shynkwanchi/rmit-billboardad
 + UX/UI Design (Figma): https://www.figma.com/file/OdJedCtoKoRmk7nkua6E90/BillBoarDad---A-billboard-booking-web-application?node-id=0%3A1
 + Techical report: https://docs.google.com/document/d/1UtM308DMx_Kf3Nah_dX5ROpqE5GgzwRKs2pJHOv8DQY/edit?usp=sharing
 + Demo video: To be added
-+ Deployment: To be added
++ Deployment: To be added (Please enable CORS Extension so that our application is able to execute properly.)
