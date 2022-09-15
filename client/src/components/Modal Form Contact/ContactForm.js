@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import {Modal} from 'react-bootstrap';
 import { getResponse } from "../../middleware/response";
 import './ContactForm.css';
+import axios from "axios";
 
 function ModalContact(props) {
-  const [senderEmail, setSenderEmail] = useState(null);
+  const [users, setUsers] = useState([]);
+  const [senderEmail] = useState(sessionStorage.getItem("userEmail"));
   const [billboardOwnerEmail] = useState(props.billboardOwnerEmail);
   const [contactPhone, setContactPhone] = useState(null);
   const [message, setMessage] = useState(null);
@@ -15,7 +17,6 @@ function ModalContact(props) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
@@ -36,6 +37,12 @@ function ModalContact(props) {
     }
   };
 
+  useEffect(()=>{
+    axios.get('http://localhost:5000/users/')
+    .then(res => {setUsers(res.data)})
+    {users.map(user=>(user.email == sessionStorage.getItem("userEmail") ? setContactPhone(user.phone) : null))}
+  }, [])
+
   return (
     <>
       <Button variant="primary" onClick={handleShow}>
@@ -52,23 +59,21 @@ function ModalContact(props) {
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="name@example.com"
+                placeholder={senderEmail}
                 autoFocus
                 required
-                onChange={(e) => {
-                  setSenderEmail(e.target.value);
-                }}/>
+                disabled
+                />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="ModalContactForm.ControlInput1">
               <Form.Label>Phone Number</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Phone number"
+                placeholder={contactPhone}
                 required
-                onChange={(e) => {
-                  setContactPhone(e.target.value);
-                }}/>
+                disabled
+                />
             </Form.Group>
 
             <Form.Group
