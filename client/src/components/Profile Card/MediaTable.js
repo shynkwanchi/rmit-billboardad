@@ -19,7 +19,14 @@ export default function MediaTable(props) {
                 </tr>
                 <tr>
                     <th scope="row">Price</th>
-                    <td>{props.price} VND</td>
+                    <td>
+                        {props.price
+                        ? props.price.toLocaleString("it-IT", {
+                        style: "currency",
+                        currency: "VND",
+                        })
+                        : props.price}{" "}
+                        / year</td>
                 </tr>
                 <tr>
                     <th scope="row">Description</th>
