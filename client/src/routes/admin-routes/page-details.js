@@ -7,6 +7,18 @@ import "./admin-panel.css";
 const PageDetails = () => {
     // PAGE DETAILS CODE
     // Load page data
+    const admin = sessionStorage.getItem("admin");
+    const navigate = useNavigate();
+    const authenticate = () => {
+      if (!admin) {
+        navigate("/admin/login");
+      }
+    };
+
+    useEffect(() => {
+      authenticate();
+    });
+
     const [page, setPage] = useState(
         {
             pageName: '',
@@ -49,7 +61,6 @@ const PageDetails = () => {
     const [sectionName, setSectionName] = useState('');
     const [sectionContent, setSectionContent] = useState('');
     const sections = LoadSections(_id);
-    const navigate = useNavigate();
 
     const addSection = (e, id) => {
         e.preventDefault();
