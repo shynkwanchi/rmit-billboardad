@@ -22,10 +22,10 @@ const MyBillboards = () => {
     userToken();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetch(`http://localhost:5000/billboards/my-billboards/${ownerEmail}`)
-    .then(res => res.json())
-    .then(data => setBillboards(data))
+      .then(res => res.json())
+      .then(data => setBillboards(data))
   }, [billboards])
 
   userToken();
@@ -34,44 +34,44 @@ const MyBillboards = () => {
     <main>
       <h2 className="tab-header">My billboards</h2>
       <div className="row filters">
-        <div className="col-6 col-sm-3 filter-container">
+        <div className="col-12 col-sm-3 filter-container">
           Billboard type
-          <select className="form-select" aria-label="Select billboard type" onChange={e => {
-                            let selectedType = e.target.value; setBillboardType(selectedType)
-                        }}>
-            <option defaultValue="All">All</option>
-            <option value="Traditional">Traditional</option>
-            <option value="Digital">Digital</option>
-          </select>
+            <select className="col-12 col-md-4 form-select" aria-label="Select billboard type" onChange={e => {
+              let selectedType = e.target.value; setBillboardType(selectedType)
+            }}>
+              <option defaultValue="All">All</option>
+              <option value="Traditional">Traditional</option>
+              <option value="Digital">Digital</option>
+            </select>
         </div>
-        <div className="col-6 col-sm-3 filter-container">
+        <div className="col-12 col-md-4 filter-container">
           Status
           <select className="form-select" aria-label="Select status" onChange={e => {
-                            let selectedType = e.target.value; setBillboardStatus(selectedType)
-                        }}>
+            let selectedType = e.target.value; setBillboardStatus(selectedType)
+          }}>
             <option defaultValue="All">All</option>
             <option value="Available">Available</option>
             <option value="Occupied">Occupied</option>
           </select>
         </div>
-        <div className="col-12 col-sm-6 col-md-4 btn-container">
-          <AddBillBoardModal/>
+        <div className="col-12 col-md-4 btn-container">
+          <AddBillBoardModal />
         </div>
       </div>
       <div className="row" id="items">
-      {billboards.filter(item => {
-          if(billboardType === "All" && billboardStatus === "All"){
+        {billboards.filter(item => {
+          if (billboardType === "All" && billboardStatus === "All") {
             return item.type === "Digital" || item.type === "Traditional" || item.status === "Available" || item.status === "Occupied"
-          }else if(billboardType === "All" && billboardStatus !== "All"){
+          } else if (billboardType === "All" && billboardStatus !== "All") {
             return (item.type === "Digital" || item.type === "Traditional") && item.status === billboardStatus
-          }else if(billboardType !== "All" && billboardStatus === "All"){
+          } else if (billboardType !== "All" && billboardStatus === "All") {
             return item.type === billboardType && (item.status === "Available" || item.status === "Occupied")
           }
-          else{
+          else {
             return item.type === billboardType && item.status === billboardStatus
           }
         }).map(filteredItem => <Card id={filteredItem?._id} title={filteredItem?.title} description={filteredItem?.description} price={filteredItem?.price} billboardImg={filteredItem.billboardImg}></Card>)}
-        
+
       </div>
     </main>
   );
