@@ -7,18 +7,18 @@ import slider3 from "../assets/Third.jpg";
 const HomeData = [
     {
         image: slider1,
-        title: "Feature 1",
-        subtitle: "Feature 1 description."
+        title: "Book billboards",
+        subtitle: "You can contact your owner throughout your desired billboard."
     },
     {
         image: slider2,
-        title: "Feature 2",
-        subtitle: "Feature 2 description."
+        title: "Manage billboards",
+        subtitle: "You can manage your billboards with no efforts."
     },
     {
         image: slider3,
-        title: "Feature 3",
-        subtitle: "Feature 3 description."
+        title: "Manage orders",
+        subtitle: "You can approve or decline any booking requests."
     },
 ];
 
