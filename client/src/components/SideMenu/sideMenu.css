@@ -113,6 +113,12 @@
 }
 
 /* RESPONSIVE CODE HERE */
+@media screen and (min-width: 993px) {
+    .side-nav.active ul li .title {
+        display: none;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .side-nav {
         left: -240px;
