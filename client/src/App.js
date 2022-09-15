@@ -53,7 +53,7 @@ function App() {
             path="/admin/page-details/:_id"
             element={<PageDetails />}
           ></Route>
-          <Route path="/details/:_id" element={<Section />}></Route>
+          <Route path="/admin/section/:_id" element={<Section />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
