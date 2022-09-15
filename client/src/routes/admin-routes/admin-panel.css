@@ -74,7 +74,7 @@
     font-weight: bold;
 }
 
-.editor-box textarea {
+.editor-box textarea, .create-new-modal textarea {
     min-height: 200px;
 }
 

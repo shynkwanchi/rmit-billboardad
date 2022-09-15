@@ -134,7 +134,7 @@ const PageDetails = () => {
             {/* Create new content section */}
             <button className="btn create-new-btn" data-bs-toggle="modal" data-bs-target="#new-section-modal"><em className="fas fa-plus"></em> Create new</button>
 
-            <div className="modal fade" id="new-section-modal" tabIndex="-1" aria-labelledby="newPageModalLabel" aria-hidden="true">
+            <div className="modal fade create-new-modal" id="new-section-modal" tabIndex="-1" aria-labelledby="newPageModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                     <div className="modal-content">
                         <form>
