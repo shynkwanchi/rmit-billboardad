@@ -24,8 +24,8 @@
 .tab.active,
 .tab:hover {
     font-weight: bold;
-    color: #3aafa9;
-    background: rgb(0, 0, 0);
+    color: #000000;
+    background: rgb(225, 222, 222);
 }
 
 .tab.active {
