@@ -8,6 +8,9 @@ const MessageSchema = new mongoose.Schema({
     billboardOwnerEmail:{
         type: String
     },
+    billboardID:{
+        type: String
+    },
     contactPhone:{
         type: String,
         required: true

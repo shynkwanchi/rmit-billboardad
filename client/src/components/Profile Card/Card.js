@@ -28,7 +28,7 @@ const ProfileCard = (props) => {
             <sub>Please log in to contact the owner</sub>
           </p>
         ) : props.billboardOwnerEmail != sessionStorage.getItem("userEmail") ? (
-          <ModalContact billboardOwnerEmail={props.billboardOwnerEmail} />
+          <ModalContact billboardID={props._id} billboardOwnerEmail={props.billboardOwnerEmail} />
         ) : (
           <EditBillboardModal _id={props._id} title={props.title} type={props.type} area={props.area} price={props.price} description={props.description}/>
         )}

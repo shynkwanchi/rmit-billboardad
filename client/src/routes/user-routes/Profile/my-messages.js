@@ -1,6 +1,7 @@
 import "./profile.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const MyMessages = () => {
   const [userEmail] = useState(sessionStorage.getItem("userEmail"));
@@ -32,6 +33,7 @@ const MyMessages = () => {
         <tr className="mes-detail">
           <th className="col-sm-2 list-mes">From</th>
           <th className="col-sm-2 list-mes">Phone Number</th>
+          <th className="col-sm-2 list-mes">Billboard's ID</th>
           <th className="col-sm-2 list-mes">Messages</th>
           <th className="col-sm-2 list-mes">At</th>
           <th className="col-sm-2 list-mes">Read</th>
@@ -40,6 +42,7 @@ const MyMessages = () => {
             <tr>
               <td >{message?.senderEmail}</td>
               <td>{message?.contactPhone}</td>
+              <td><Link to={`/details/${message?.billboardID}`}>{message?.billboardID}</Link></td>
               <td>{message?.message}</td>
               <td>{message?.dateCreated}</td>
             </tr>

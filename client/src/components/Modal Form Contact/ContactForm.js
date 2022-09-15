@@ -10,6 +10,7 @@ function ModalContact(props) {
   const [users, setUsers] = useState([]);
   const [senderEmail] = useState(sessionStorage.getItem("userEmail"));
   const [billboardOwnerEmail] = useState(props.billboardOwnerEmail);
+  const [billboardID] = useState(props.billboardID);
   const [contactPhone, setContactPhone] = useState(null);
   const [message, setMessage] = useState(null);
 
@@ -28,6 +29,7 @@ function ModalContact(props) {
         body: JSON.stringify({
           senderEmail: senderEmail,
           billboardOwnerEmail: billboardOwnerEmail,
+          billboardID: billboardID,
           contactPhone: contactPhone,
           message: message
         }),

@@ -29,6 +29,7 @@ messageRouter.post('/', async function(req, res){
     try {
         const senderEmail = req.body.senderEmail;
         const billboardOwnerEmail = req.body.billboardOwnerEmail;
+        const billboardID = req.body.billboardID;
         const contactPhone = req.body.contactPhone;
         const message = req.body.message;
 
@@ -46,6 +47,7 @@ messageRouter.post('/', async function(req, res){
         const newMessage = new messageSchema({
             senderEmail: senderEmail,
             billboardOwnerEmail: billboardOwnerEmail,
+            billboardID: billboardID,
             contactPhone: contactPhone,
             message: message
         });
