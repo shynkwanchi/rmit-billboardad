@@ -1,4 +1,4 @@
-# billboardad
+# rmit-billboardad
 BillBoarDad - A billboard booking web application.
 
 A group assignment for Further Web Programming (COSC2769) at RMIT University.
@@ -11,7 +11,7 @@ Lecturer/Tutor: Thanh Nguyen Ngoc.
 
 Date created: Jul 8 2022.
 
-Last updated: To be added.
+Last updated: Sep 15 2022.
 
 ## Project Group 1: MERN Noobs.
 ### 1) Members
