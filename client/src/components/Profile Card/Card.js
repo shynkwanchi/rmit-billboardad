@@ -22,9 +22,17 @@ const ProfileCard = (props) => {
         {/* <Card.Text>{card.text}</Card.Text> */}
 
         {/* If owner, not showing Contact button */}
-        {props.billboardOwnerEmail != sessionStorage.getItem("userEmail")?
-        <ModalContact billboardOwnerEmail={props.billboardOwnerEmail}/>: <p style={{color:"#36A19C"}}><sub>You own this advertisement</sub></p>}
-       
+        {!sessionStorage.getItem("token") ? (
+          <p style={{ color: "#36A19C" }}>
+            <sub>Please log in to contact the owner</sub>
+          </p>
+        ) : props.billboardOwnerEmail != sessionStorage.getItem("userEmail") ? (
+          <ModalContact billboardOwnerEmail={props.billboardOwnerEmail} />
+        ) : (
+          <p style={{ color: "#36A19C" }}>
+            <sub>You own this advertisement</sub>
+          </p>
+        )}
       </Card.Body>
     </Card>
   );
