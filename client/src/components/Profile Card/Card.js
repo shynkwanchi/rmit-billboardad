@@ -2,6 +2,7 @@ import React from "react";
 import "./Card.css";
 import Card from "react-bootstrap/Card";
 import ModalContact from "../Modal Form Contact/ContactForm";
+import EditBillboardModal from "../Edit Billboard Modal";
 
 const ProfileCard = (props) => {
   const cardDetail = {
@@ -29,10 +30,9 @@ const ProfileCard = (props) => {
         ) : props.billboardOwnerEmail != sessionStorage.getItem("userEmail") ? (
           <ModalContact billboardOwnerEmail={props.billboardOwnerEmail} />
         ) : (
-          <p style={{ color: "#36A19C" }}>
-            <sub>You own this advertisement</sub>
-          </p>
+          <EditBillboardModal _id={props._id} title={props.title} type={props.type} area={props.area} price={props.price} description={props.description}/>
         )}
+       
       </Card.Body>
     </Card>
   );

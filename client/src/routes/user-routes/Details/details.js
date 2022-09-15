@@ -16,6 +16,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./details.css";
 import ProfileCard from "../../../components/Profile Card/Card";
 import Features from "../../../components/Profile Card/MediaTable";
+import EditBillboardModal from "../../../components/Edit Billboard Modal";
 import { useParams } from "react-router-dom";
 import { React, useState, useEffect } from "react";
 
@@ -50,7 +51,12 @@ if (billboards) {
             <div className="col-auto">
               {billboards && (
                 <ProfileCard
+                  _id={billboards[0]._id}
                   title={billboards[0].title}
+                  type={billboards[0].type}
+                  area={billboards[0].area}
+                  price={billboards[0].price}
+                  description={billboards[0].description}
                   billboardImg={billboards[0].billboardImg}
                   billboardOwnerEmail={billboardOwnerEmail}
                 />

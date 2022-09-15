@@ -103,6 +103,19 @@ billboardRouter.post(
   }
 );
 
+//Find One and Update
+billboardRouter.put('/edit/:_id', function(req, res){
+  const title = req.body.title;
+  const price = req.body.price;
+  const description = req.body.description;
+  const area = req.body.area;
+  const billboardType = req.body.type;
+  billboardSchema.findOneAndUpdate({_id: req.params._id},{ title:title, price:price, description:description, area:area, type: billboardType }, function(err, result){
+    res.status(200).json({ successMsg: "Billboard successfully updated!" });
+  })
+})
+
+
 // delete a billboard
 billboardRouter.delete("/:id", async (req, res) => {
   try {
