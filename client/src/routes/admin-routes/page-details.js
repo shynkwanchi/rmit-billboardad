@@ -180,7 +180,7 @@ const PageDetails = () => {
                                     <td>{section.dateCreated}</td>
                                     <td>{section.lastUpdated}</td>
                                     <td>
-                                        <button className="btn" onClick={() => { navigate(`/admin/section/${section._id}`) }}>View</button>
+                                        <button className="btn" onClick={() => { navigate(`/admin/section/${section._id}`) }}>Updare</button>
                                         <button className="btn danger" onClick={(e) => deleteSection(e, section._id)}>Delete</button>
                                     </td>
                                 </tr>

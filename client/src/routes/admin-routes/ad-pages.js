@@ -113,7 +113,7 @@ const Pages = () => {
                                     <td>{page.dateCreated}</td>
                                     <td>{page.lastUpdated}</td>
                                     <td>
-                                        <button className="btn" onClick={() => { navigate(`/admin/page-details/${page._id}`) }}>View</button>
+                                        <button className="btn" onClick={() => { navigate(`/admin/page-details/${page._id}`) }}>Update</button>
                                         <button className="btn danger" onClick={(e) => deletePage(e, page._id)}>Delete</button>
                                     </td>
                                 </tr>
