@@ -28,17 +28,17 @@ const MyMessages = () => {
 
   return (
     <main>
-      <table className="col-12 mes-contain">
-        <tr className="row mes-detail">
-          <th className="col list-mes">From</th>
-          <th className="col list-mes">Phone Number</th>
-          <th className="col list-mes">Messages</th>
-          <th className="col list-mes">At</th>
-          <th className="col list-mes">Read</th>
+      <table className="col mes-contain">
+        <tr className="mes-detail">
+          <th className="col-2 list-mes">From</th>
+          <th className="col-2 list-mes">Phone Number</th>
+          <th className="col-2 list-mes">Messages</th>
+          <th className="col-2 list-mes">At</th>
+          <th className="col-2 list-mes">Read</th>
         </tr>
         {messages.map(message =>
             <tr>
-              <td>{message?.senderEmail}</td>
+              <td >{message?.senderEmail}</td>
               <td>{message?.contactPhone}</td>
               <td>{message?.message}</td>
               <td>{message?.dateCreated}</td>
