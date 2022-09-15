@@ -39,12 +39,9 @@ html a {
 
 /* STYLE FOR BUTTONS */
 .btn {
-  color: #fff !important;
-  background: #3aafa9;
   transition: all 0.5s ease;
 }
 
 .btn:hover {
   font-weight: bold;
-  background: #2b7a78;
 }
