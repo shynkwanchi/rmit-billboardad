@@ -17,12 +17,12 @@ import './details.css';
 import Slider from '../../../components/Slider/slider'
 import ProfileCard from '../../../components/Profile Card/Card'
 import Features from '../../../components/Profile Card/MediaTable';
-import HomeData from "../../../data/HomeData";
+import DetailData from '../../../data/DetailData';
 
 function Details(){
     return(
         <main>
-            <Slider slides={HomeData}/>
+            <Slider slides={DetailData}/>
             <div className='container'>
                 <div className='row'>
                     <div className='col-auto'>
