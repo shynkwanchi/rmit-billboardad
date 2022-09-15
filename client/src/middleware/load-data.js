@@ -35,9 +35,6 @@ export const LoadPages = () => {
 
 export const LoadPage = (id) => {
     const [page, setPage] = useState({});
-
-    console.log(id);
-
     useEffect(() => {
         fetch(`http://localhost:5000/pages/${id}`)
             .then(res => res.json())
