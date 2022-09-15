@@ -42,7 +42,8 @@ function Details() {
   billboards && console.log(billboards)
 } 
 
-  return (
+if (billboards) {
+    return (
     <main>
       <Slider slides={HomeData} />
       <div className="container">
@@ -58,6 +59,8 @@ function Details() {
       </div>
     </main>
   );
+}
+
 }
 
 export default Details;
