@@ -1,9 +1,21 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { getResponse, discardChanges } from "../../middleware/response";
 import "./admin-panel.css";
 
 const Section = () => {
+    const admin = sessionStorage.getItem("admin");
+    const navigate = useNavigate();
+    const authenticate = () => {
+      if (!admin) {
+        navigate("/admin/login");
+      }
+    };
+
+    useEffect(() => {
+      authenticate();
+    });
+
     // Load section data
     const [section, setSection] = useState({
         sectionName: '',
