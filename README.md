@@ -50,4 +50,4 @@ BillBoarDad is a web application that allows users to manage the billboards as w
 + UX/UI Design (Figma): https://www.figma.com/file/OdJedCtoKoRmk7nkua6E90/BillBoarDad---A-billboard-booking-web-application?node-id=0%3A1
 + Techical report: https://docs.google.com/document/d/1UtM308DMx_Kf3Nah_dX5ROpqE5GgzwRKs2pJHOv8DQY/edit?usp=sharing
 + Demo video: To be added
-+ Deployment: To be added (Please enable CORS Extension so that our application will execute properly.)
++ Deployment: https://jovial-lollipop-2a36f8.netlify.app/
