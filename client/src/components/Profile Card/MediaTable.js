@@ -21,6 +21,10 @@ export default function MediaTable(props) {
                     <th scope="row">Price</th>
                     <td>{props.price}</td>
                 </tr>
+                <tr>
+                    <th scope="row">Description</th>
+                    <td>{props.description}</td>
+                </tr>
             </tbody>
         </table>
     )

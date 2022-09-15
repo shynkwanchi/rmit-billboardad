@@ -24,12 +24,14 @@ import { React, useState, useEffect } from "react";
 function Details() {
   const { _id } = useParams();
   const [billboards, setBillboard] = useState();
+  const [billboardOwnerEmail, setBillboardOwnerEmail] = useState(null);
 
   const specificBillboard = async () => {
     await fetch(`http://localhost:5000/billboards/specific/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setBillboard(data);
+        setBillboardOwnerEmail(data[0].owner);
       }); 
   };
 
@@ -53,10 +55,10 @@ if (billboards) {
                 <ProfileCard
                   title={billboards[0].title}
                   billboardImg={billboards[0].billboardImg}
+                  billboardOwnerEmail={billboardOwnerEmail}
                 />
               )}
             </div>
-
             <div className="col p-3">
               <Features
                 description={billboards[0].description}

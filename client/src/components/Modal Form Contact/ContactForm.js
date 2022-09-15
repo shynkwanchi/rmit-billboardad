@@ -2,13 +2,39 @@ import React, { useState } from 'react';
 import {Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
 import {Modal} from 'react-bootstrap';
+import { getResponse } from "../../middleware/response";
 import './ContactForm.css';
 
-function ModalContact() {
+function ModalContact(props) {
+  const [senderEmail, setSenderEmail] = useState(null);
+  const [billboardOwnerEmail] = useState(props.billboardOwnerEmail);
+  const [contactPhone, setContactPhone] = useState(null);
+  const [message, setMessage] = useState(null);
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      fetch("http://localhost:5000/messages/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          senderEmail: senderEmail,
+          billboardOwnerEmail: billboardOwnerEmail,
+          contactPhone: contactPhone,
+          message: message
+        }),
+      }).then((res) => getResponse(res));
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -27,7 +53,11 @@ function ModalContact() {
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
-                autoFocus/>
+                autoFocus
+                required
+                onChange={(e) => {
+                  setSenderEmail(e.target.value);
+                }}/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="ModalContactForm.ControlInput1">
@@ -35,7 +65,10 @@ function ModalContact() {
               <Form.Control
                 type="text"
                 placeholder="Phone number"
-                autoFocus/>
+                required
+                onChange={(e) => {
+                  setContactPhone(e.target.value);
+                }}/>
             </Form.Group>
 
             <Form.Group
@@ -43,7 +76,10 @@ function ModalContact() {
               controlId="ModalContactForm.ControlTextarea1"
             >
               <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={3} />
+              <Form.Control as="textarea" rows={3} required
+                onChange={(e) => {
+                  setMessage(e.target.value);
+                }}/>
             </Form.Group>
           </Form>
         </Modal.Body>
@@ -51,7 +87,7 @@ function ModalContact() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSubmit}>
             Send
           </Button>
         </Modal.Footer>
