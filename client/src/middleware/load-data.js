@@ -33,6 +33,20 @@ export const LoadPages = () => {
     return pages;
 }
 
+export const LoadPage = (id) => {
+    const [page, setPage] = useState({});
+
+    console.log(id);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/pages/${id}`)
+            .then(res => res.json())
+            .then(data => setPage(data))
+    }, [id]);
+
+    return page
+}
+
 export const LoadSections = (id) => {
     const [sections, setSections] = useState([]);
     useEffect(() => {

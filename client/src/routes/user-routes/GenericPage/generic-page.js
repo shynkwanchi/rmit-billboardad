@@ -1,22 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Collapse from "../../../components/Collapse/collapse";
-import { LoadSections } from "../../../middleware/load-data";
+import { LoadPage, LoadSections } from "../../../middleware/load-data";
 import "./generic-page.css";
 
 const GenericPage = () => {
     // Load the page
-    const [page, setPage] = useState({});
     const { _id } = useParams();
-
-    useEffect(() => {
-        fetch(`http://localhost:5000/pages/${_id}`)
-            .then(res => res.json())
-            .then(data => setPage(data))
-    }, [_id]);
-
-    console.log(page);
-
+    const page = LoadPage(_id);
     const sections = LoadSections(_id);
 
     return (
