@@ -124,16 +124,17 @@ billboardRouter.delete("/:id", async (req, res) => {
 });
 
 // fetch info of a bill board
-// Get a billboard based on user's email
-billboardRouter.get("/my-billboards/:id", (req, res) => {
+billboardRouter.get("/specific/:id", async (req, res) => {
   const id = req.params.id;
-  billboardSchema.find({ _id: id }, (err, billboards) => {
-    if (err) {
-      console.log(err)
-      res.send(err);
-    }
-    res.send(billboards);
-  });
+
+  try {
+    const billboard = await billboardSchema.find( {_id: id});
+    res.send(billboard);
+  } catch(err) {
+    console.log(err);
+    res.send("Error")
+  }
+  
 });
 
 

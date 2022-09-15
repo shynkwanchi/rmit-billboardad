@@ -23,13 +23,19 @@ import { React, useState, useEffect } from "react";
 
 function Details() {
   const { _id } = useParams();
-  const [billboards, setBillboard] = useState([]);
-  useEffect(() => {
-    fetch(`http://localhost:5000/billboards/my-billboards/${_id}`)
+  const [billboards, setBillboard] = useState();
+
+  const specificBillboard = async () => {
+    await fetch(`http://localhost:5000/billboards/specific/${_id}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setBillboard(data);
-      });
+      }); 
+  };
+
+  useEffect(() => {
+    specificBillboard();
   }, []);
 
 
@@ -39,7 +45,7 @@ function Details() {
       <div className="container">
         <div className="row">
           <div className="col-auto">
-            <ProfileCard />
+            {billboards && <ProfileCard title={billboards.title} billboardImg={billboards.billboardImg}/>} 
           </div>
 
           <div className="col p-3">
